@@ -179,8 +179,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		);
 		?>
 	</p>
-
-	<hr>
+	
 	<table class="form-table tools-privacy-policy-page" role="presentation">
 		<tr>
 			<th scope="row">

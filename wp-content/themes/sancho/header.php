@@ -35,7 +35,10 @@ global $data;
 	<meta http-equiv="X-UA-Compatible" content="IE=11">
 	<meta name="format-detection" content="telephone=no"/>
 
-		<?php wp_head(); ?>
+	<?php wp_head(); ?>
 	<link rel='stylesheet' id='sancho-css'  href='<?php echo $tDir; ?>/css/styles.css' type='text/css' media='all' />
 	<link rel='stylesheet' id='sancho-css'  href='<?php echo $tDir; ?>/css/styles_responsive.css' type='text/css' media='all' />
+	<link rel='stylesheet' id='sancho-css'  href='<?php echo $tDir; ?>/slick/slick.css' type='text/css' media='all' />
+	<link rel='stylesheet' id='sancho-css'  href='<?php echo $tDir; ?>/slick/slick-theme.css' type='text/css' media='all' />
+	
 </head>

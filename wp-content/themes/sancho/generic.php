@@ -4,7 +4,7 @@
 global $tDir;
 ?>
 <?php get_header(); ?>
-<?php  get_template_part('part-header'); ?>
+<?php  get_template_part('template-parts/part-header'); ?>
 
 <div id="primary" class="content-area content-grid-generic">
 	<?php 
@@ -87,5 +87,5 @@ global $tDir;
 </div><!-- .content-area -->
 
 
-<?php get_template_part('part-footer'); ?> 
+<?php get_template_part('template-parts/part-footer'); ?> 
 <?php get_footer(); ?>

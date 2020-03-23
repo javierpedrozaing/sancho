@@ -3,8 +3,7 @@
 	<div class="fotoer-sancho">		
 				
 	</div>	
-	</div>
+</div>
 </body>
-
 
 </html>
