@@ -1,6 +1,8 @@
 <?php
 /* Template Name: About template */
 ?>
+
+
 <?php global $tDir; ?>
 <?php get_header(); ?>
 <?php  get_template_part('template-parts/part-header'); ?>
@@ -32,16 +34,108 @@
 				<div class="third-parraph">
 					<?php echo the_field('tercer_parrafo'); ?>							
 				</div>
-										
-			
-			</div>
+		
+
 			<?php endwhile; ?>
+			</div>
+
+			
+			<?php 
+					$args = array( 'post_type' => 'nuestroslideres', 'posts_per_page' => 50 );
+					$the_query = new WP_Query( $args );		
+					if ( $the_query->have_posts() ) :
+						while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+						<?php						
+							$photoLeader = get_field('foto');
+							$position = get_field('cargo');
+							$description = get_field('descripcion');
+							$areaLeader = get_field('lider_de_area');
+						?>
+							<!-- Large modal -->
+						
+
+							<div class="modal  bd-example-modal-lg" tabindex="-1" role="dialog">
+							<div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+								<div class="modal-header">									
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<p>Modal body text goes here.</p>
+								</div>							
+								</div>
+							</div>
+							</div>
+						<?php if(!$areaLeader) : ?> 						
+							<div class="lideres">							
+								<h3>Nuestros Lideres</h3>								
+									<div class="card-group row">									
+										<div class="col-xs-1 col-md-3 ">
+											<div class="card">
+											
+												<img class="" src="<?php echo $photoLeader ?>" alt="<?php echo $photoLeader ?>">
+												<div class="hover-card"></div>										
+													<div class="content-hover" data-toggle="modal" data-target=".bd-example-modal-lg">
+														<p class="name-leader"><?php echo the_title(); ?></p>
+														<p class="position-leader"><?php  echo $position ?></p>
+														<a href="#" class="readMore">Ver más  </a> <span  class="readMore"> > </span>
+													</div>												
+											</div>										
+										</div>
+
+										<div class="col-xs-1 col-md-3 ">
+											<div class="card">
+												<img class="" src="<?php echo $photoLeader ?>" alt="<?php echo $photoLeader ?>">
+												<div class="hover-card"></div>										
+													<div class="content-hover">
+														<p class="name-leader"><?php echo the_title(); ?></p>
+														<p class="position-leader"><?php  echo $position ?></p>
+														<a href="#" class="readMore">Ver más  </a> <span  class="readMore"> > </span>
+													</div>												
+											</div>										
+										</div>
+
+										<div class="col-xs-1 col-md-3 ">
+											<div class="card">
+												<img class="" src="<?php echo $photoLeader ?>" alt="<?php echo $photoLeader ?>">
+												<div class="hover-card"></div>										
+													<div class="content-hover">
+														<p class="name-leader"><?php echo the_title(); ?></p>
+														<p class="position-leader"><?php  echo $position ?></p>
+														<a href="#" class="readMore">Ver más  </a> <span  class="readMore"> > </span>
+													</div>												
+											</div>										
+										</div>
+
+										<div class="col-xs-1 col-md-3 ">
+											<div class="card">
+												<img class="" src="<?php echo $photoLeader ?>" alt="<?php echo $photoLeader ?>">
+												<div class="hover-card"></div>										
+													<div class="content-hover">
+														<p class="name-leader"><?php echo the_title(); ?></p>
+														<p class="position-leader"><?php  echo $position ?></p>
+														<a href="#" class="readMore">Ver más  </a> <span  class="readMore"> > </span>
+													</div>												
+											</div>										
+										</div>
+										
+																		
+									</div>
+							
+							</div>																					
+							
+						<?php endif; ?>
+
+						<?php endwhile; ?>
+					<?php endif; ?>	
+
+
+	
 			<div class="container-share">
 				<div class="images-share">
-					<div class="anchor-about">
-						<div class="img-anchor">
-						</div>
-					</div>
+					
 					<?php echo do_shortcode("[social_share_button]"); ?>
 					<div class="img-share">
 					</div>

@@ -1,6 +1,8 @@
 ( function( $ ) {   
   $(document).ready(function(){
-     //cargar mas grilla plugin
+
+    $('body, html').addClass('show-scroll');
+   
      /////////////////////////// START DESKTOP //////////////////////////////////////
      $('.menu-item-11').css('display', 'none'); // hide home
 
@@ -17,6 +19,35 @@
             event.preventDefault();
         }
     });
+
+    // animacion compartir y ancla
+    var scrollPos = 0;
+    $(window).scroll(function () {
+        var currentPos = $(this).scrollTop();
+        if (currentPos <= 10) {
+          $('.container-share').css('opacity','0');
+        } else{
+          $('.container-share').css('opacity','1');
+        }
+        scrollPos = currentPos;
+    });
+
+    
+
+    $('.img-share').on('click', function(){
+      $('.wp-share-button.theme32').toggleClass('active-share');
+    });
+
+    $(".lideres .content-hover").hover(function(){
+      $(this).prev('.hover-card').css('opacity', '0.47');
+      $(this).css('cursor', 'pointer');
+      $(this).prev('.hover-card').show();
+    }, function(){
+      $(this).prev('.hover-card').hide();
+    });
+
+
+  
 
     /////////////////////////// END DESKTOP //////////////////////////////////////
 

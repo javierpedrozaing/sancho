@@ -700,6 +700,22 @@
 	    height: initial;
 	}*/
 	/*fin*/
+
+	/** NEW VERSION **/
+	.lideres .card-group{
+		display: inline-block;
+	}
+
+	.lideres .card-group .col-xs-1{
+		width: 45%;
+		display: inline-block;
+		margin: 5px;
+		padding: 0;
+	}
+
+	.lideres img{
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 320px){

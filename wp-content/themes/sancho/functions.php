@@ -15,6 +15,22 @@ register_nav_menus(
 	)
 );
 
+// Incluir Bootstrap CSS
+function bootstrap_scripts() {
+	wp_enqueue_style( 'bootstrap_css', 
+  					get_stylesheet_directory_uri() . '/css/bootstrap.min.css', 
+  					array(), 
+  					'4.1.3'
+					  ); 
+	wp_enqueue_script( 'bootstrap_js', 
+  					get_stylesheet_directory_uri() . '/js/bootstrap.min.js', 
+  					array('jquery'), 
+  					'4.1.3', 
+  					true); 
+}
+add_action( 'wp_enqueue_scripts', 'bootstrap_scripts');
+
+
 function my_jquery_enqueue() {
    
    	wp_enqueue_script('jquery');
@@ -27,8 +43,6 @@ function my_jquery_enqueue() {
    	wp_enqueue_script( 'infinite-scroll-js', "https://unpkg.com/infinite-scroll@3.0.2/dist/infinite-scroll.pkgd.min.js", array( 'jquery' ), '', true );
    	wp_enqueue_script( 'images-load-js', "https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js", array( 'jquery' ), '', true );
 	// wp_enqueue_script( 'jquery-grid', "https://cdn.rawgit.com/suprb/Nested/master/jquery.nested.js", array( 'jquery' ), '', true );
-	
-
 
 	$themeSancho = array(
 		'_ajax_url' => admin_url( 'admin-ajax.php' ),

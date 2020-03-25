@@ -144,6 +144,7 @@ input::-ms-clear {
 .menu-menu-header-container li:hover,
 .active_menu:hover{
     background-color: #c33625;
+    height: 60px;
 }
 .menu-menu-header-container li.active_menu:hover a{
     color: #fff;
@@ -1374,6 +1375,9 @@ input::-ms-clear {
     margin-right: 35px;
 }
 
+
+/* ********************************new version***********************   */
+
 .content-social-icons{    
     display: inline-block;    
     text-align: right;
@@ -1413,3 +1417,102 @@ input::-ms-clear {
     color: #ffffff;
     
 }
+.card-group .col-xs-1{
+    margin: 0;
+    padding: 0;
+}
+
+.lideres {
+    display: inline-block;    
+    margin: 0 15%;
+}
+
+.lideres h3{
+    text-align: center;
+    margin: 20px auto;
+    color: #484848;
+    font-size: 24px;
+}
+
+.lideres .card-group .card{
+    margin:5px;
+}
+
+
+.lideres .content-hover:hover{
+    opacity: 1;    
+    height: 210px;
+}
+
+
+
+.lideres img{
+    width: auto;
+}
+
+.lideres .content-hover{
+    height: 210px;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    
+}
+
+.lideres .hover-card{    
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 210px;
+    width: 100%;
+    display: none;
+    transition: .5s ease;
+    background-color: #EF4024;
+}
+
+
+.lideres  .content-hover p, .lideres  .content-hover a{
+    color: white;
+    font-size: 20px;
+    position: absolute;    
+    left: 70%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: left;
+}
+
+.lideres  .content-hover p, .lideres  .content-hover a, .lideres  .content-hover span{
+    color: #fff;    
+    font-family: Arial, Helvetica, sans-serif;    
+    
+}
+.lideres  .content-hover .name-leader{    
+    position: relative;
+    top: 97px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.lideres  .content-hover .position-leader{
+    position: relative;
+    top: 93px;
+    font-size: 14px;
+}
+
+.lideres  .content-hover .readMore{
+    position: relative;
+    top: 111px;
+    left: 20%;
+    font-size: 14px;
+}
+
+.lideres  .content-hover span.readMore{
+    margin-left: 10px;    
+}
+
+.modal-dialog modal-lg{
+    top:50px;
+}
+
