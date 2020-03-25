@@ -51,9 +51,7 @@
 							$description = get_field('descripcion');
 							$areaLeader = get_field('lider_de_area');
 						?>
-							<!-- Large modal -->
-						
-
+							<!-- Large modal -->						
 							<div class="modal  bd-example-modal-lg" tabindex="-1" role="dialog">
 							<div class="modal-dialog modal-lg" role="document">
 								<div class="modal-content">
@@ -68,13 +66,14 @@
 								</div>
 							</div>
 							</div>
+
+
 						<?php if(!$areaLeader) : ?> 						
 							<div class="lideres">							
 								<h3>Nuestros Lideres</h3>								
 									<div class="card-group row">									
 										<div class="col-xs-1 col-md-3 ">
-											<div class="card">
-											
+											<div class="card">											
 												<img class="" src="<?php echo $photoLeader ?>" alt="<?php echo $photoLeader ?>">
 												<div class="hover-card"></div>										
 													<div class="content-hover" data-toggle="modal" data-target=".bd-example-modal-lg">
@@ -119,15 +118,25 @@
 														<a href="#" class="readMore">Ver más  </a> <span  class="readMore"> > </span>
 													</div>												
 											</div>										
-										</div>
-										
-																		
-									</div>
+										</div>																		
+									</div>							
+																										
+								<?php else: ?>
+								<!-- IMPLEMENT TABS AND SHOW AREA LEADERS-->
+								
+								<a class="tab-collapse-leaders" data-toggle="collapse" href="#collapseLeaders" role="button" aria-expanded="false" aria-controls="collapseLeaders">
+									Líderes de las áreas 
+									<span> - </span>
+								</a>
 							
-							</div>																					
-							
-						<?php endif; ?>
-
+								
+								<div class="collapse" id="collapseLeaders">
+								<div class="card card-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+								</div>
+								</div>
+								<?php endif; ?>
+							</div>	
 						<?php endwhile; ?>
 					<?php endif; ?>	
 

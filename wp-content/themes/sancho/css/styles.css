@@ -1512,7 +1512,34 @@ input::-ms-clear {
     margin-left: 10px;    
 }
 
-.modal-dialog modal-lg{
+.container-about .modal-dialog modal-lg{
     top:50px;
 }
 
+.container-about .tab-collapse-leaders{
+    width: 80%;
+    text-decoration: none;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #000;
+    display: block;
+    padding: 5px 20px;
+    font-size: 20px;
+    color: #484848;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.container-about .tab-collapse-leaders span{
+    float: right;
+    font-weight: bold;
+    font-size: 20px;
+    vertical-align: middle;
+    bottom: 4px;
+    position: relative;
+}
+
+.container-about #collapseLeaders{
+    width: 80%;
+    margin: 0 auto;
+}
