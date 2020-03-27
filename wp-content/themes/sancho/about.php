@@ -8,8 +8,7 @@
 <?php  get_template_part('template-parts/part-header'); ?>
 
 	<div class="container-about">
-			<?php while ( have_posts() ) : the_post(); ?>	
-				
+			<?php while ( have_posts() ) : the_post(); ?>					
 				<?php if (get_field('imagen_o_video') == "imagen") : ?>
 					<div class="about-img">
 						<img class="img-desktop-about" src="<?php echo the_field('imagen_escritorio'); ?>">
@@ -52,19 +51,25 @@
 							$areaLeader = get_field('lider_de_area');
 						?>
 							<!-- Large modal -->						
-							<div class="modal  bd-example-modal-lg" tabindex="-1" role="dialog">
-							<div class="modal-dialog modal-lg" role="document">
-								<div class="modal-content">
-								<div class="modal-header">									
+							<div class="modal  modal-leaders modal-dialog  modal-lg" tabindex="-1" role="dialog">
+							
+								<div class="modal-content">								
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 									</button>
-								</div>
+								
 								<div class="modal-body">
-									<p>Modal body text goes here.</p>
+									<div class="opacity"></div>
+									
+									<div class="detail-leader">									
+										<img class="photo-leader" src="" alt="">
+										<p class="name-leader"></p>
+										<p class="position-leader"></p>
+										<p class="description-leader"></p>
+									</div>
 								</div>							
 								</div>
-							</div>
+							
 							</div>
 
 
@@ -76,14 +81,14 @@
 											<div class="card">											
 												<img class="" src="<?php echo $photoLeader ?>" alt="<?php echo $photoLeader ?>">
 												<div class="hover-card"></div>										
-													<div class="content-hover" data-toggle="modal" data-target=".bd-example-modal-lg">
+													<div class="content-hover modal-leaders" data-toggle="modal" data-target=".modal-leaders" data-name="<?php the_title(); ?>" data-photo="<?php echo $photoLeader; ?>" data-position="<?php echo  $position?>" data-description="<?php echo wp_strip_all_tags($description) ?>">
 														<p class="name-leader"><?php echo the_title(); ?></p>
 														<p class="position-leader"><?php  echo $position ?></p>
 														<a href="#" class="readMore">Ver más  </a> <span  class="readMore"> > </span>
 													</div>												
 											</div>										
 										</div>
-
+	
 										<div class="col-xs-1 col-md-3 ">
 											<div class="card">
 												<img class="" src="<?php echo $photoLeader ?>" alt="<?php echo $photoLeader ?>">

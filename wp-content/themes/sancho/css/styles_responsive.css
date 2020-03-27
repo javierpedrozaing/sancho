@@ -716,6 +716,10 @@
 	.lideres img{
 		width: 100%;
 	}
+
+	.container-about .modal-leaders{
+		display: none;
+	}
 }
 
 @media screen and (max-width: 320px){
@@ -775,7 +779,7 @@
 	.item_grid_home.width_g_home_1{
 		width: 65.9%;
 	}
-	.content-area{
+	.content-area, .container-about{
 		margin-top: 85px;
 	}
 	.content-home{

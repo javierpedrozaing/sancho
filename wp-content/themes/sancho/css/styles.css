@@ -1424,14 +1424,20 @@ input::-ms-clear {
 
 .lideres {
     display: inline-block;    
-    margin: 0 15%;
+    padding: 0 15%;
+    background: #f0f0f06b;
+    margin-top: 50px;
 }
 
 .lideres h3{
     text-align: center;
-    margin: 20px auto;
+    margin: 30px auto;
     color: #484848;
     font-size: 24px;
+    font-family: Helvetica;
+    opacity: 1;
+    font-weight: 700;
+    letter-spacing: 0.24px;
 }
 
 .lideres .card-group .card{
@@ -1542,4 +1548,83 @@ input::-ms-clear {
 .container-about #collapseLeaders{
     width: 80%;
     margin: 0 auto;
+}
+
+
+/* MODAL CSS */
+.modal-backdrop.show{
+    opacity: 0 !important;
+}
+
+.container-about .modal-leaders{
+    padding: 0 !important;
+    margin:0 !important;
+}
+
+.container-about .modal-leaders .modal-body{
+    margin:0;
+    padding: 0;
+}
+
+.container-about .modal-leaders .modal-body .opacity{
+    display: inline-block;
+    width: 50%;
+    background-color: #000;
+    opacity: 0.47;    
+}
+
+.container-about .modal-leaders .modal-body .detail-leader{
+    display: block;
+    width: 50%;
+    background: #fff;
+    float: right;
+    
+}    
+.container-about .modal-leaders .modal-body .detail-leader p{
+    padding: 0 20px;
+    overflow-y: auto;
+    margin: 10px 0;
+}
+
+.container-about .modal-leaders .modal-body .photo-leader{        
+    max-height: 280px;
+}
+
+.container-about .modal-leaders .modal-body .description-leader{
+    height: 300px;
+    
+}
+
+.container-about .modal-leaders .modal-body .detail-leader .name-leader{
+    color:#484848;
+    font-family: Helvetica;
+    font-size: 24px;
+}
+
+.container-about .modal-leaders .modal-header{
+    border:none;
+}
+.container-about .modal-leaders button.close{
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    right: 0;
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    background-color: #EF4024;
+    z-index: 999;
+    opacity: 1;
+    color: #fff;
+}
+
+.modal-lg, .modal-xl{    
+    max-width:100% !important;    
+}
+
+.modal-leaders .modal-content{
+    background-color: #00000085;
 }
