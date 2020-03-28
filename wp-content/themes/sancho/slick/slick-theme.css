@@ -21,7 +21,7 @@
     font-size: 0;
     line-height: 0;
     position: absolute;
-    bottom: 5%;
+    bottom: -24px;
     display: block;
     width: 50px;
     height: 60px;
@@ -41,7 +41,7 @@
     font-size: 0;
     line-height: 0;
     position: absolute;
-    bottom: 5%;
+    bottom: -24px;
     display: block;
     width: 50px;
     height: 60px;
@@ -60,9 +60,8 @@
 .slick-next:hover,
 .slick-next:focus
 {
-    color: transparent;
     outline: none;
-    background: transparent;
+    background: #c33625;
 }
 .slick-prev:hover:before,
 .slick-prev:focus:before,
@@ -84,11 +83,12 @@
     font-size: 20px;
     line-height: 1;
 
-    opacity: .75;
+    opacity: 1;
     color: white;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    
 }
 
 .slick-prev
@@ -138,16 +138,15 @@
 {
     position: absolute;
     bottom: -25px;
-
     display: block;
-
     width: 100%;
     padding: 0;
     margin: 0;
-
     list-style: none;
-
     text-align: center;
+    right: 96px;
+    bottom: 21px;
+    width:200px;
 }
 .slick-dots li
 {
@@ -157,7 +156,7 @@
 
     width: 20px;
     height: 20px;
-    margin: 0 5px;
+    margin: 0 1px;
     padding: 0;
 
     cursor: pointer;
@@ -166,54 +165,33 @@
 {
     font-size: 0;
     line-height: 0;
-
     display: block;
-
-    width: 20px;
-    height: 20px;
-    padding: 5px;
-
+    width: 8px;
+    height: 8px;
+    padding: 2px;
     cursor: pointer;
-
     color: transparent;
-    border: 0;
-    outline: none;
     background: transparent;
+    border: 0;
+    outline: none;    
+    border:1px solid #fff;
+    border-radius:50%;
 }
 .slick-dots li button:hover,
 .slick-dots li button:focus
 {
     outline: none;
 }
-.slick-dots li button:hover:before,
-.slick-dots li button:focus:before
+.slick-dots li button:hover,
+.slick-dots li button:focus
 {
     opacity: 1;
 }
-.slick-dots li button:before
+
+.slick-dots li.slick-active button
 {
-    font-family: 'slick';
-    font-size: 6px;
-    line-height: 20px;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 20px;
-    height: 20px;
-
-    content: '•';
-    text-align: center;
-
-    opacity: .25;
-    color: black;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.slick-dots li.slick-active button:before
-{
-    opacity: .75;
-    color: black;
+    opacity: 1;
+    background: white;
+    
+    
 }

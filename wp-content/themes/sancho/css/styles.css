@@ -34,13 +34,13 @@ input::-ms-clear {
     display: none;
 }
 @font-face {
-    font-family: 'helveticaregular';
+    font-family: 'Helvetica';
     src: url('../fonts/helvetica-01-webfont.eot');
     src: url('../fonts/helvetica-01-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/helvetica-01-webfont.woff2') format('woff2'),
          url('../fonts/helvetica-01-webfont.woff') format('woff'),
          url('../fonts/helvetica-01-webfont.ttf') format('truetype'),
-         url('../fonts/helvetica-01-webfont.svg#helveticaregular') format('svg');
+         url('../fonts/helvetica-01-webfont.svg#Helvetica') format('svg');
 }
 @font-face {
     font-family: 'helveticalight';
@@ -131,6 +131,7 @@ input::-ms-clear {
     transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
+    height: 60px;
 }
 .menu-menu-header-container li{
     display: inline-block;
@@ -162,7 +163,7 @@ input::-ms-clear {
     text-decoration: none;
     font-size: 13px;
     color: #fff;    
-    font-family: "helveticaregular";
+    font-family: "Helvetica";
 }
 .container-language{
     display: inline-block;
@@ -184,7 +185,7 @@ input::-ms-clear {
 }
 .container-language a,
 .container-language-mobile a{
-    font-family: 'helveticabold';
+    font-family: "Helvetica";
     color: #fff;
     text-align: center;
     text-transform: uppercase;
@@ -217,8 +218,7 @@ input::-ms-clear {
     width: 0%;
     min-width: 60px;
     height: 60px;
-    right: 320px;
-    top: 0;
+    right: 320px;    
     overflow: hidden;
     -webkit-transition: width 0.3s;
     -moz-transition: width 0.3s;
@@ -238,7 +238,7 @@ input::-ms-clear {
     border: none;
     padding-left: 25px;
     color: #fff;
-    font-family: 'helveticaregular';
+    font-family: "Helvetica";
     font-weight: bold;
     font-size: 13px;
     padding-top: 0;
@@ -250,7 +250,7 @@ input::-ms-clear {
     height: 60px;
     -webkit-appearance: none;
     border: none;
-    background-color: #8b8b8b;
+    background-color: #484848;
     outline: none;
     top: 0;
     z-index: 9;
@@ -296,7 +296,7 @@ input::-ms-clear {
     position: relative;
 }
 .container-t-p p{
-    font-family: "helveticaregular";
+    font-family: "Helvetica";
     font-size: 14px;
     color: #fff;
     font-weight: bold;
@@ -344,7 +344,7 @@ input::-ms-clear {
     margin: 70px auto 0px;
 }
 .container-text-about p{
-    font-family: "helveticalight";
+    font-family: "Helvetica";
     color: #666666;
     line-height: 1.5;
 }
@@ -353,7 +353,7 @@ input::-ms-clear {
 }
 .container-text-about h1, 
 .container-text-about h2{
-    font-family: "helveticaregular";
+    font-family: "Helvetica";
     color: #000;
     margin-bottom: 40px;
 }
@@ -372,7 +372,8 @@ input::-ms-clear {
     font-size: 15px;
 }
 .container-text-about .third-parraph h3{
-    font-family: "timesitalic";
+    font-family: "Helvetica";
+    
     font-size: 40px;
     color: #adadad;
     text-align: center;
@@ -384,7 +385,7 @@ input::-ms-clear {
 }
 .container-text-about .third-parraph li{
     list-style: none;
-    font-family: 'helveticalight';
+    font-family: "Helvetica";
     font-size: 15px;
     color: #666666;
     padding-left: 12px;
@@ -449,13 +450,13 @@ input::-ms-clear {
     margin: 0 auto;
 }
 .cont-txt-polices-terms h1{
-    font-family: "helveticaregular";
+    font-family: "Helvetica";
     font-size: 47px;
     color: #000;
     margin-bottom: 40px;
 }
 .cont-txt-polices-terms p{
-    font-family: "helveticalight";
+    font-family: "Helvetica";
     font-size: 17px;
     color: #666666;
     margin-bottom: 45px;
@@ -481,29 +482,29 @@ input::-ms-clear {
     margin: 70px auto 90px;
 }
 .container-article .container-text-article h3{
-    font-family: 'timesitalic';
+    font-family: "Helvetica";
     font-size: 27px;
     color: #000;
 }
 .container-article .container-text-article h1{
-    font-family: 'helveticaregular';
+    font-family: "Helvetica";
     font-size: 47px;
     color: #000;
 }
 .container-article .container-text-article h4{
-    font-family: 'helveticaregular';
+    font-family: "Helvetica";
     font-size: 16px;
     color: #000;
 }
 .container-article .container-text-article p{
-    font-family: 'helveticalight';
+    font-family: "Helvetica";
     font-size: 17px;
     color: #666666;
     margin-top: 50px;
     line-height: 1.7;
 }
 .container-article .container-text-article h2{
-    font-family: 'timesitalic';
+    font-family: "Helvetica";
     font-size: 40px;
     color: #adadad;
     max-width: 760px;
@@ -533,7 +534,7 @@ input::-ms-clear {
     font-size: 0;
 }
 .container-related h1{
-    font-family: 'helveticaregular';
+    font-family: "Helvetica";
     font-size: 28px;
     color: #666666;
     text-align: center;
@@ -553,7 +554,7 @@ input::-ms-clear {
     height: auto;
 }
 .container-related .yarpp-related p{
-    font-family: 'timesitalic';
+    font-family: "Helvetica";
     font-size: 16px;
     color: #fff;
     position: absolute;
@@ -561,7 +562,7 @@ input::-ms-clear {
     left: 15px;
 }
 .container-related .yarpp-related h2{
-    font-family: 'helveticabold';
+    font-family: "Helvetica";
     font-size: 19px;
     color: #fff;
     top: 50px;
@@ -622,13 +623,13 @@ input::-ms-clear {
     margin-top: 60px;
 }
 .container-contact .info-sancho h1{
-    font-family: 'helveticabold';
+    font-family: "Helvetica";
     font-size: 22px;
     color: #000;
     margin-bottom: 20px;
 }
 .container-contact .info-sancho p{
-    font-family: 'helveticalight';
+    font-family: "Helvetica";
     font-size: 15px;
     color: #666666;
 }
@@ -644,7 +645,7 @@ input::-ms-clear {
     margin-right: 0;
 }
 .container-contact .info-emails p{
-    font-family: 'helveticalight';
+    font-family: "Helvetica";
     font-size: 15px;
     color: #666666;
     text-align: center;
@@ -676,7 +677,7 @@ input::-ms-clear {
 .bx-wrapper .bx-pager{
     text-align: center;
     font-size: .85em;
-    font-family: Arial;
+    font-family: "Helvetica";
     font-weight: bold;
     color: #dcdcdc;
     padding-top: 20px;
@@ -724,7 +725,7 @@ input::-ms-clear {
     border: none;
     width: 100%;
     height: 62px;
-    font-family: 'helveticabold';
+    font-family: "Helvetica";
     font-size: 18px;
     color: #757575;
     padding-top: 0;
@@ -752,7 +753,7 @@ input::-ms-clear {
 .container-continent .tab-continent p{
     color: #fff;
     font-size: 15px;
-    font-family: 'helveticabold';
+    font-family: "Helvetica";
     padding: 16px 0;
 }
 .container-continent .tab-continent.container-nortamerica{
@@ -794,14 +795,14 @@ input::-ms-clear {
     vertical-align: top;
 }*/
 .container-continent .city-continents .container-country h1{
-    font-family: 'helveticabold';
+    font-family: "Helvetica";
     font-size: 17px;
     color: #000;
     padding-bottom: 15px;
 }
 .container-continent .city-continents .company-country h3,
 .container-continent .city-continents .company-country p{
-    font-family: 'helveticalight';
+    font-family: "Helvetica";
     font-size: 13px;
     color: #666666;
 }
@@ -858,14 +859,14 @@ input::-ms-clear {
   overflow: hidden; 
 }
 .result-search-ubication .container-country h1{
-    font-family: 'helveticabold';
+    font-family: "Helvetica";
     font-size: 17px;
     color: #000;
     padding-bottom: 15px;
 }
 .result-search-ubication .company-country h3,
 .result-search-ubication .company-country p{
-    font-family: 'helveticalight';
+    font-family: "Helvetica";
     font-size: 13px;
     color: #666666;
 }
@@ -904,7 +905,7 @@ input::-ms-clear {
 .search-container .list-sugestion li a{
     text-decoration: none;
     font-size: 13px;
-    font-family: 'helveticabold';
+    font-family: "Helvetica";
     color: #666666;
     padding-left: 25px;
 }
@@ -932,7 +933,7 @@ input::-ms-clear {
     height: auto;
 }
 .container-result-search li p{
-    font-family: 'timesitalic';
+    font-family: "Helvetica";
     font-size: 16px;
     color: #fff;
     position: absolute;
@@ -940,7 +941,7 @@ input::-ms-clear {
     left: 15px;
 }
 .container-result-search li h1{
-    font-family: 'helveticabold';
+    font-family: "Helvetica";
     font-size: 19px;
     color: #fff;
     top: 50px;
@@ -956,7 +957,7 @@ input::-ms-clear {
     padding: 30px 0;
     width: 18%;
     font-size: 14px;
-    font-family: 'helveticabold';
+    font-family: "Helvetica";
     color: #c8c8c8;
     text-align: right;
     display: inline-block;
@@ -972,7 +973,7 @@ input::-ms-clear {
     display: inline-block;
     vertical-align: top;
     font-size: 14px;
-    font-family: 'helveticabold';
+    font-family: "Helvetica";
     color: #fff;
     text-align: center;
     padding: 29px 0;
@@ -996,7 +997,7 @@ input::-ms-clear {
 .clean-search p{
     text-transform: uppercase;
     font-size: 13px;
-    font-family: 'helveticabold';
+    font-family: "Helvetica";
     cursor: pointer;
     padding: 6px 15px;
     color: #8b8b8b;
@@ -1012,7 +1013,7 @@ input::-ms-clear {
     margin-top: 55px;
 }
 .no-result-search p{
-    font-family: 'helveticaregular';
+    font-family: "Helvetica";
     font-size: 22px;
     color: #000;
     text-align: center;
@@ -1021,7 +1022,7 @@ input::-ms-clear {
 .home-mobile a p,
 .menu-menu-header-container li a,
 .pol-ter-mobile .txt-pol-ter p{
-    font-family: "helveticaregular";
+    font-family: "Helvetica";
 }
 
 /*grilla home*/
@@ -1139,13 +1140,13 @@ input::-ms-clear {
     height: 205px;
 }
 .item_grid_notice h1{
-    font-family: 'timesbold_italic';
+    font-family: "Helvetica";
     font-size: 16px;
     color: #ca0000;
     padding-left: 10px;
 }
 .item_grid_notice p{
-    font-family: 'helveticaregular';
+    font-family: "Helvetica";
     font-size: 13px;
     color: #8b8b8b;
     padding-left: 10px;
@@ -1174,7 +1175,7 @@ input::-ms-clear {
     cursor: pointer;
 }
 .item_grid_hover .container_hover_grid h1{
-    font-family: "timesbold_italic";
+    font-family: "Helvetica";
     font-size: 19px;
     color: #fff;
     line-height: 1.2em;
@@ -1189,7 +1190,7 @@ input::-ms-clear {
     padding: 1em 0 1em 1em;
 }
 .item_grid_hover .container_hover_grid p{
-    font-family: "helveticabold";
+    font-family: "Helvetica";
     font-size: 22px;
     display: block;
     width: 90%;
@@ -1267,13 +1268,13 @@ input::-ms-clear {
 
 /** plugin ***/
 .item_notice_plugin h1{
-    font-family: 'timesbold_italic';
+    font-family: "Helvetica";
     font-size: 16px;
     color: #ca0000;
     padding-left: 10px;
 }
 .item_notice_plugin p{
-    font-family: 'helveticaregular';
+    font-family: "Helvetica";
     font-size: 13px;
     color: #8b8b8b;
     padding-left: 10px;
@@ -1313,7 +1314,7 @@ input::-ms-clear {
     height: 98%;
 }
 .filterall .eg-vanburen-element-4{
-    font-family: "timesbold_italic" !important;
+    font-family: "Helvetica";
     font-size: 19px !important;
     color: #fff !important;
     line-height: 1.2em !important;
@@ -1328,7 +1329,7 @@ input::-ms-clear {
     padding: 1em 0 1em 1em !important;
 }
 .filterall .eg-vanburen-element-0{
-    font-family: "helveticabold" !important;
+    font-family: "Helvetica";
     font-size: 22px !important;
     display: block !important;
     width: 90% !important;
@@ -1351,7 +1352,7 @@ input::-ms-clear {
 /*****/
 
 .notice-title{
-    font-family: 'timesbold_italic' !important;
+    font-family: "Helvetica";
     font-size: 16px !important;
     color: #ca0000 !important;
     padding-left: 10px !important;
@@ -1360,7 +1361,7 @@ input::-ms-clear {
 
 .articulo-subtitulo, .item_notice_plugin p:nth-child(2){
     top: 50px !important;
-    font-family: 'helveticaregular' !important;
+    font-family: "Helvetica";
     font-size: 13px !important;
     color: #8b8b8b !important;
     padding-left: 10px !important;
@@ -1378,43 +1379,53 @@ input::-ms-clear {
 
 /* ********************************new version***********************   */
 
+.content-social-icons a:first-child img{
+    width: 7px;
+}
+
 .content-social-icons{    
     display: inline-block;    
     text-align: right;
-    margin: 10px 0;
+    margin: 2px 0;    
+    top: 20px;
+    position: relative;
 }
 
 .content-social-icons img{
-    width:15px;
+    width:auto;
     margin:0 15px;
 }
 
 
 .content-slide .slide-block h4{        
     display: block;
-    top: 200px;
+    top: 310px;
     position: absolute;
     margin: 50px 100px;
     color: #ffffff;
+    font-family: "Helvetica";
+    font-weight: bold;
 }
 
 .content-slide .slide-block p{        
-    display: block;
-    top: 250px;
-    position: absolute;
-    margin: 50px 100px;
-    color: #ffffff;
-    width: 350px;
-    height: 100px;
-    text-emphasis: left;
-}
-
-.content-slide .link-slide{
     display: block;
     top: 350px;
     position: absolute;
     margin: 50px 100px;
     color: #ffffff;
+    width: 362px;
+    height: 100px;
+    font-size: 14px;
+    font-family: "Regular";
+}
+
+.content-slide .link-slide{
+    display: block;
+    top: 450px;
+    position: absolute;
+    margin: 50px 100px;
+    color: #ffffff;
+    font-weight: bold;
     
 }
 .card-group .col-xs-1{
@@ -1434,7 +1445,7 @@ input::-ms-clear {
     margin: 30px auto;
     color: #484848;
     font-size: 24px;
-    font-family: Helvetica;
+    font-family: "Helvetica";
     opacity: 1;
     font-weight: 700;
     letter-spacing: 0.24px;
