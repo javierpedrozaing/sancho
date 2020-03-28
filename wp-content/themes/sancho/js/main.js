@@ -66,7 +66,76 @@
 
     });
   
+    // $('.grid').isotope({
+    //   itemSelector: '.grid-item',
+    //   percentPosition: true,
+    //   masonry: {
+    //     columnWidth: '.grid-sizer'
+    //   }    
+      
+    // });
 
+
+    // $('.grid').isotope({
+    //   itemSelector: '.grid-item',
+    //   masonry: {
+    //     columnWidth: 100
+    //   }
+    // });
+
+
+    // $('.grid').isotope({
+    //   layoutMode: 'packery',
+    //   itemSelector: '.grid-item',
+    //   percentPosition: true,
+    //   packery: {
+    //     columnWidth: '.grid-sizer'
+    //   }
+    // });
+    
+
+    // $('.gridhome').isotope({
+    //   itemSelector: '.grid-item',
+    //   masonry: {        
+    //     gutter: 4,
+    //     horizontalOrder: false,                
+    //   }
+    // });
+
+  // init Masonry
+
+    var $grid = $('.gridhome').isotope({
+      itemSelector: '.grid-item', // select none at first
+      masonry: {        
+            gutter: 4,
+            horizontalOrder: false,                
+          }
+  
+    });
+
+    // get Masonry instance
+    var msnry = $grid.masonry;
+
+    // initial items reveal
+    $grid.imagesLoaded( function() {
+      $grid.removeClass('are-images-unloaded');
+      $grid.masonry( 'option', { itemSelector: '.grid-item' });
+      var $items = $grid.find('.grid-item');
+      $grid.masonry( 'appended', $items );
+    });
+
+//-------------------------------------//
+// init Infinte Scroll
+
+    // $grid.infiniteScroll({
+    //   path: '.pagination__next',
+    //   append: '.grid-item',
+    //   outlayer: msnry,
+    //   status: '.page-load-status',
+    // });
+
+        
+    
     /////////////////////////// END DESKTOP //////////////////////////////////////
 
 

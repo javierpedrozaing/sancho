@@ -95,7 +95,7 @@ input::-ms-clear {
     display: none;
 }
 .container-general{
-    max-width: 1280px;
+    max-width: 1390px;
     margin: 0 auto;
 }
 .logo-sancho{
@@ -115,7 +115,7 @@ input::-ms-clear {
     top: 0;
     width: 100%;
     font-size: 0;
-    max-width: 1280px;
+    max-width: 1390px;
     transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
@@ -218,7 +218,7 @@ input::-ms-clear {
     width: 0%;
     min-width: 60px;
     height: 60px;
-    right: 320px;    
+    right: 277px;    
     overflow: hidden;
     -webkit-transition: width 0.3s;
     -moz-transition: width 0.3s;
@@ -1084,7 +1084,7 @@ input::-ms-clear {
 
 .grid {
   box-sizing: border-box;
-  max-width: 1280px;
+  max-width: 1390px;
 }
 
 /* clearfix */
@@ -1639,3 +1639,44 @@ input::-ms-clear {
 .modal-leaders .modal-content{
     background-color: #00000085;
 }
+
+
+/* ///////////////////////////////////////////// GRILLA ////////////////////////////////////////*/ 
+
+
+/* ---- grid ---- */
+
+.gridhome {    
+    left: 20px;
+    top: -13px;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .element-item ---- */
+
+/* 5 columns, percentage width */
+.grid-item,
+.grid-sizer {
+  width: 20%;
+}
+
+.grid-item {
+  float: left;
+  height: 100px;
+  background: #0D8;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.7);
+  margin-bottom: 5px;
+  padding: 0;
+}
+
+.grid-item--rectangular { width: 32%; height: 260px; }
+.grid-item--square { height: 260px;  width: 16%; }
+.grid-item--squarex2 { height: 522px; width: 32%;}
+

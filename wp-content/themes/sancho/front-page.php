@@ -80,6 +80,63 @@
 			
 		 ?>
 	</main>
+
+	
+	
+
+<div class="gridhome">
+  <div class="grid-sizer"></div>
+  <!-- <div class="grid-item grid-item--width2"></div> -->
+  <div class="grid-item grid-item--square"></div>
+  <div class="grid-item grid-item--rectangular"></div>
+  <div class="grid-item grid-item--square"></div>  
+  <div class="grid-item grid-item--squarex2"></div>
+
+  <div class="grid-item grid-item--square"></div>
+  <div class="grid-item grid-item--square"></div>
+  <div class="grid-item grid-item--rectangular"></div>
+
+  <div class="grid-item grid-item--rectangular"></div>
+  <div class="grid-item grid-item--square"></div>
+  <div class="grid-item grid-item--rectangular"></div>
+  <div class="grid-item grid-item--square"></div>
+
+  <div class="grid-item grid-item--rectangular"></div>
+  <div class="grid-item grid-item--rectangular"></div>
+  <div class="grid-item grid-item--rectangular"></div>
+
+  <div class="grid-item grid-item--squarex2"></div>
+  <div class="grid-item grid-item--square"></div>
+  <div class="grid-item grid-item--rectangular"></div>
+  <div class="grid-item grid-item--square"></div>
+  <div class="grid-item grid-item--rectangular"></div>
+  <div class="grid-item grid-item--rectangular"></div>
+
+	<div class="page-load-status">
+	<div class="loader-ellips infinite-scroll-request">
+		<span class="loader-ellips__dot"></span>
+		<span class="loader-ellips__dot"></span>
+		<span class="loader-ellips__dot"></span>
+		<span class="loader-ellips__dot"></span>
+	</div>
+	<p class="infinite-scroll-last">End of content</p>
+	<p class="infinite-scroll-error">No more pages to load</p>
+	</div>
+
+	<a class="pagination__next" href="/page/2">Next</a>
+  <!-- <div class="grid-item grid-item--width2 grid-item--height2"></div>
+  <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item grid-item--square"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item grid-item--square"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div> -->
+</div>
+
+
+
 	
 </div>
 <?php  get_template_part('template-parts/part-footer'); ?>
