@@ -136,9 +136,29 @@ function load_posts_by_ajax(){
 			<div class="gridhome">
 				<div class="grid-sizer"></div>
 				<?php while ( $blog_posts->have_posts() ) : $blog_posts->the_post(); ?>					
-					<?php $size_grid = get_field( 'size_grid' ); ?>
+					<?php
+					 $size_grid = get_field( 'size_grid' ); 
+					$external_link = get_field( 'check_external_link' )
+					 
+					?>
 					<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID()); ?>											
-						<div class="grid-item grid-item--<?php echo explode(':', $size_grid)[0]; ?>" ><img class="thumbnail-grid" src="<?php  echo $featured_img_url; ?>" alt=""></div>  									
+						<div class="grid-item grid-item--<?php echo explode(':', $size_grid)[0]; ?>" ><img class="thumbnail-grid" src="<?php  echo $featured_img_url; ?>" alt="">
+							<div class="hover-content">
+								<p class="taq-post"><?php  echo the_category() ?> </p>
+								<p class="title-post"> <?php  echo the_title() ?>  </p>
+								<p class="date-post"><?php echo get_the_date() ?></p>
+								<p class="link-post">
+									<?php 
+									if ($external_link) {
+										echo "<a href=''>link externo</a>";
+									}else{
+										echo "<a href=''>link interno</a>";
+									}
+									?>
+								</p>
+							</div>
+						</div>  									
+					
 				<?php endwhile; ?>
 				<?php endif; ?>			 
 			</div>
@@ -158,7 +178,7 @@ function load_more_posts_by_ajax(){
 		$args = array(
 			'post_type' => 'post',
 			'post_status' => 'publish',
-			'posts_per_page' => 1,
+			'posts_per_page' => 4,
 			'paged' =>  $paged,
 		);
 		$blog_posts = new WP_Query( $args );

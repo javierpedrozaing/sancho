@@ -38,26 +38,14 @@
 			<?php endwhile; ?>
 			</div>
 
-			
-			<?php 
-					$args = array( 'post_type' => 'nuestroslideres', 'posts_per_page' => 50 );
-					$the_query = new WP_Query( $args );		
-					if ( $the_query->have_posts() ) :
-						while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-						<?php						
-							$photoLeader = get_field('foto');
-							$position = get_field('cargo');
-							$description = get_field('descripcion');
-							$areaLeader = get_field('lider_de_area');
-						?>
-							<!-- Large modal -->						
-							<div class="modal  modal-leaders modal-dialog  modal-lg" tabindex="-1" role="dialog">
+			<!-- Large modal -->						
+			<div class="modal  modal-leaders modal-dialog  modal-lg" tabindex="-1" role="dialog">
 							
-								<div class="modal-content">								
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-									</button>
-								
+							<div class="modal-content">								
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+								</button>
+							
 								<div class="modal-body">
 									<div class="opacity"></div>
 									
@@ -68,13 +56,25 @@
 										<p class="description-leader"></p>
 									</div>
 								</div>							
-								</div>
-							
 							</div>
-
-
-						<?php if(!$areaLeader) : ?> 						
-							<div class="lideres">							
+						
+						</div>
+			<div class="lideres">
+				<?php 
+					$args = array( 'post_type' => 'nuestroslideres', 'posts_per_page' => 50 );
+					$the_query = new WP_Query( $args );		
+					if ( $the_query->have_posts() ) :
+						while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+						<?php						
+							$photoLeader = get_field('foto');
+							$position = get_field('cargo');
+							$description = get_field('descripcion');
+							$areaLeader = get_field('lider_de_area');
+						?>
+							
+						
+							<?php if(!$areaLeader) : ?> 						
+														
 								<h3>Nuestros Lideres</h3>								
 									<div class="card-group row">									
 										<div class="col-xs-1 col-md-3 ">
@@ -88,63 +88,54 @@
 													</div>												
 											</div>										
 										</div>
-	
-										<div class="col-xs-1 col-md-3 ">
-											<div class="card">
-												<img class="" src="<?php echo $photoLeader ?>" alt="<?php echo $photoLeader ?>">
-												<div class="hover-card"></div>										
-													<div class="content-hover">
-														<p class="name-leader"><?php echo the_title(); ?></p>
-														<p class="position-leader"><?php  echo $position ?></p>
-														<a href="#" class="readMore">Ver más  </a> <span  class="readMore"> > </span>
-													</div>												
-											</div>										
-										</div>
-
-										<div class="col-xs-1 col-md-3 ">
-											<div class="card">
-												<img class="" src="<?php echo $photoLeader ?>" alt="<?php echo $photoLeader ?>">
-												<div class="hover-card"></div>										
-													<div class="content-hover">
-														<p class="name-leader"><?php echo the_title(); ?></p>
-														<p class="position-leader"><?php  echo $position ?></p>
-														<a href="#" class="readMore">Ver más  </a> <span  class="readMore"> > </span>
-													</div>												
-											</div>										
-										</div>
-
-										<div class="col-xs-1 col-md-3 ">
-											<div class="card">
-												<img class="" src="<?php echo $photoLeader ?>" alt="<?php echo $photoLeader ?>">
-												<div class="hover-card"></div>										
-													<div class="content-hover">
-														<p class="name-leader"><?php echo the_title(); ?></p>
-														<p class="position-leader"><?php  echo $position ?></p>
-														<a href="#" class="readMore">Ver más  </a> <span  class="readMore"> > </span>
-													</div>												
-											</div>										
-										</div>																		
-									</div>							
-																										
-								<?php else: ?>
-								<!-- IMPLEMENT TABS AND SHOW AREA LEADERS-->
-								
-								<a class="tab-collapse-leaders" data-toggle="collapse" href="#collapseLeaders" role="button" aria-expanded="false" aria-controls="collapseLeaders">
-									Líderes de las áreas 
-									<span> - </span>
-								</a>
-							
-								
-								<div class="collapse" id="collapseLeaders">
-								<div class="card card-body">
-									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-								</div>
-								</div>
-								<?php endif; ?>
-							</div>	
+										
+									</div>
+							<?php endif; ?>		
 						<?php endwhile; ?>
-					<?php endif; ?>	
+					<?php endif; ?>		
 
+					<?php 
+					$args = array( 'post_type' => 'nuestroslideres', 'posts_per_page' => 50 );
+					$the_query = new WP_Query( $args );		
+					if ( $the_query->have_posts() ) :
+						while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+						<?php						
+							$photoLeader = get_field('foto');
+							$position = get_field('cargo');
+							$description = get_field('descripcion');
+							$areaLeader = get_field('lider_de_area');
+						?>
+							
+								<?php if($areaLeader) : ?> 	
+					
+												<!-- IMPLEMENT TABS AND SHOW AREA LEADERS-->
+									<div class="lideres-area">										
+										<a class="tab-collapse-leaders" data-toggle="collapse" href="#collapseLeaders" role="button" aria-expanded="false" aria-controls="collapseLeaders">
+											Líderes de las áreas 
+											<span> - </span>
+										</a>
+																			
+										<div class="collapse" id="collapseLeaders">
+											<div class="card card-body">
+											<div class="col-xs-1 col-md-3 ">
+												<div class="card">											
+														<img class="" src="<?php echo $photoLeader ?>" alt="<?php echo $photoLeader ?>">
+														<div class="hover-card"></div>										
+															<div class="content-hover modal-leaders" data-toggle="modal" data-target=".modal-leaders" data-name="<?php the_title(); ?>" data-photo="<?php echo $photoLeader; ?>" data-position="<?php echo  $position?>" data-description="<?php echo wp_strip_all_tags($description) ?>">
+																<p class="name-leader"><?php echo the_title(); ?></p>
+																<p class="position-leader"><?php  echo $position ?></p>
+																<a href="#" class="readMore">Ver más  </a> <span  class="readMore"> > </span>
+															</div>												
+													</div>										
+												</div>
+											</div>
+										</div>
+									</div>					
+								
+								<?php endif; ?>
+						<?php endwhile; ?>
+					<?php endif; ?>
+			</div>	
 
 	
 			<div class="container-share">

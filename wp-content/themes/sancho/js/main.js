@@ -119,6 +119,8 @@
         loadMorePost();        
       }
     });
+
+   
         
     /////////////////////////// END DESKTOP //////////////////////////////////////
 
@@ -154,7 +156,23 @@
               gutter: 4,                                             
           });
 
-                            
+          $( ".gridhome .grid-item" ).hover(function() {
+             console.log("hover");
+             $(this).find('.hover-content').show();
+             $(this).find('.hover-content').css('position', 'absolute');
+             $(this).find('.hover-content').css('z-index', '9999')
+             $(this).find('.hover-content').css('top', '130px');
+             $(this).find('.hover-content').css('margin', '0 20px');
+             $(this).find('.hover-content').css('color', '#fff');
+             $(this).find('.hover-content').css('font-weight', 'bold');
+             
+              $(this).addClass('active_hover_grid');
+            
+            }, function() {
+              $(this).removeClass('active_hover_grid');
+              $(this).find('.hover-content').hide();
+            }
+          );                
           } else {
               $('.loadmore').hide();
           }
@@ -198,7 +216,15 @@
                       themeSancho._current_page++;                   
                       canBeLoaded = true;
                   } 
-                }
+                },
+                complete: function(){
+                  $( ".gridhome .grid-item" ).hover(function() {
+                    console.log("hover");
+                     $(this).addClass('active_hover_grid');
+                   }, function() {
+                     $(this).removeClass('active_hover_grid');
+                   });
+                },
               });
 
 
