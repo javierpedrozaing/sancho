@@ -32,7 +32,7 @@ add_action( 'wp_enqueue_scripts', 'bootstrap_scripts');
 
 
 function my_jquery_enqueue() {
-   
+	global $wp_query;
    	wp_enqueue_script('jquery');
    	wp_enqueue_script( 'sancho-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20160816', true );
 	wp_enqueue_script( 'bxslider-js', get_template_directory_uri() . '/js/jquery.bxslider.js', array( 'jquery' ), '', false );	   
@@ -58,7 +58,8 @@ function my_jquery_enqueue() {
 			'_ajax_nonce'=>wp_create_nonce( 'dhvc_form_ajax_nonce' ),
 		'_themes_url'=>  get_template_directory_uri(),
 		'_site_url'=> get_site_url(),
-		'_current_page'=> get_the_ID(),
+		'_current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
+		'_max_page' => $wp_query->max_num_pages,
 	);
 
 	wp_localize_script('sancho-script', 'themeSancho', $themeSancho);
@@ -110,6 +111,72 @@ function guias(){
 	echo $html; 
 
 	die();
+}
+
+
+
+add_action('wp_ajax_load_posts_by_ajax', 'load_posts_by_ajax');
+add_action('wp_ajax_nopriv_load_posts_by_ajax', 'load_posts_by_ajax');
+
+function load_posts_by_ajax(){
+	
+		//check_ajax_referer('load_more_posts', 'security');
+		$paged = $_POST['page'];
+		$args = array(
+			'post_type' => 'post',
+			'post_status' => 'publish',
+			'posts_per_page' => 7,
+			// 'orderby' => array( 'date' => 'DESC'),
+			'paged' =>  $paged,
+		);
+		$blog_posts = new WP_Query( $args );		
+		?>	 	
+	
+			<?php if ( $blog_posts->have_posts() ) : ?>
+			<div class="gridhome">
+				<div class="grid-sizer"></div>
+				<?php while ( $blog_posts->have_posts() ) : $blog_posts->the_post(); ?>					
+					<?php $size_grid = get_field( 'size_grid' ); ?>
+					<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID()); ?>											
+						<div class="grid-item grid-item--<?php echo explode(':', $size_grid)[0]; ?>" ><img class="thumbnail-grid" src="<?php  echo $featured_img_url; ?>" alt=""></div>  									
+				<?php endwhile; ?>
+				<?php endif; ?>			 
+			</div>
+	 <?php
+		wp_die();
+	
+}
+
+add_action('wp_ajax_load_more_posts_by_ajax', 'load_more_posts_by_ajax');
+add_action('wp_ajax_nopriv_load_more_posts_by_ajax', 'load_more_posts_by_ajax');
+
+function load_more_posts_by_ajax(){
+	$paged_post = $_POST["page"]  + 1;
+
+	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : $paged_post;
+		//check_ajax_referer('load_more_posts', 'security');		
+		$args = array(
+			'post_type' => 'post',
+			'post_status' => 'publish',
+			'posts_per_page' => 1,
+			'paged' =>  $paged,
+		);
+		$blog_posts = new WP_Query( $args );
+		?>	 	 			
+			<?php if ( $blog_posts->have_posts() ) : ?>
+			<div class="gridhome">
+				<div class="grid-sizer"></div>
+				<?php while ( $blog_posts->have_posts() ) : $blog_posts->the_post(); ?>					
+					<?php $size_grid = get_field( 'size_grid' ); ?>
+					<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID()); ?>											
+						<div class="grid-item grid-item--<?php echo explode(':', $size_grid)[0]; ?>" ><img class="thumbnail-grid" src="<?php  echo $featured_img_url; ?>" alt=""></div>  									
+				<?php endwhile; ?>
+			</div>
+				<?php endif; ?>			
+		<?php
+	 
+		wp_die();
+	
 }
 
 add_action('wp_ajax_customSearch', 'customSearch');

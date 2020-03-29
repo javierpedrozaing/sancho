@@ -94,48 +94,32 @@
     // });
     
 
-    // $('.gridhome').isotope({
-    //   itemSelector: '.grid-item',
-    //   masonry: {        
-    //     gutter: 4,
-    //     horizontalOrder: false,                
-    //   }
-    // });
+    $('.gridhome').masonry({
+      // itemSelector: '.grid-item',
+      // masonry: {        
+      //   gutter: 4,
+      //   horizontalOrder: false,                
+      // }
+      itemSelector: '.grid-item',
+      
+      gutter: 4,                   
+      horizontalOrder: false 
+    });
 
-  // init Masonry
-
-    var $grid = $('.gridhome').isotope({
-      itemSelector: '.grid-item', // select none at first
-      masonry: {        
-            gutter: 4,
-            horizontalOrder: false,                
-          }
+    // load init post HOME
+    loadPostInit();
+   
+    var canBeLoaded = true;
+    // Load more post infinity scroll
+    jQuery(window).scroll(function($) {
   
-    });
-
-    // get Masonry instance
-    var msnry = $grid.masonry;
-
-    // initial items reveal
-    $grid.imagesLoaded( function() {
-      $grid.removeClass('are-images-unloaded');
-      $grid.masonry( 'option', { itemSelector: '.grid-item' });
-      var $items = $grid.find('.grid-item');
-      $grid.masonry( 'appended', $items );
-    });
-
-//-------------------------------------//
-// init Infinte Scroll
-
-    // $grid.infiniteScroll({
-    //   path: '.pagination__next',
-    //   append: '.grid-item',
-    //   outlayer: msnry,
-    //   status: '.page-load-status',
-    // });
-
+      
+      if( jQuery(document).scrollTop() > ( jQuery(document).height() - 1000 ) && canBeLoaded == true ){
         
-    
+        loadMorePost();        
+      }
+    });
+        
     /////////////////////////// END DESKTOP //////////////////////////////////////
 
 
@@ -152,7 +136,75 @@
 
   });    
 
+    function loadPostInit(){
+      
+      var data = {
+          'action': 'load_posts_by_ajax',
+          'page': 1,
+        // 'security': blog.security
+      };   
+      
+      $.post(themeSancho._ajax_url, data, function(response) {                
+          if($.trim(response) != '') {
+  
+            $('.containergrid').append(response);
+            
+            $('.gridhome').masonry({
+              itemSelector: '.grid-item',                            
+              gutter: 4,                                             
+          });
 
+                            
+          } else {
+              $('.loadmore').hide();
+          }
+      });      
+
+    }
+
+
+
+    function loadMorePost(){                       
+              var data = {
+                  'action': 'load_more_posts_by_ajax',
+                  'page':  themeSancho._current_page,
+                  'max_page': themeSancho._max_page,
+                  //'security': blog.security
+              };              
+
+              $.ajax({
+                url : themeSancho._ajax_url,
+                data:data,
+                type:'POST',
+                beforeSend: function( xhr ){
+                  // you can also add your own preloader here
+                  // you see, the AJAX call is in process, we shouldn't run it again until complete
+                  canBeLoaded = false; 
+                },
+                success:function(response){
+                  
+                  if($.trim(response) != '')  {
+                    console.log("current page =>",themeSancho._current_page);
+                  console.log("current max_page =>", data['max_page']);
+             
+                    
+                     $('.containergrid').append(response);
+                         
+                    $('.gridhome').masonry({
+                      itemSelector: '.grid-item',                            
+                      gutter: 4,                                             
+                  });
+                      canBeLoaded = true;
+                      themeSancho._current_page++;                   
+                      canBeLoaded = true;
+                  } 
+                }
+              });
+
+
+    }
+
+    
   ///////////////// SLIDE LIBRARY ////////////////
     $('.slide-home').slick({
       dots: true,
