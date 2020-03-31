@@ -133,7 +133,16 @@
       }
     });
 
-   
+    // hover de logos de compañia
+      $( ".container-img-company" ).hover(function() {
+        $(this).find('.img-black').css('display', 'none');
+        $(this).find('.img-color').css('display', 'block');
+      }, function() {
+        $(this).find('.img-black').css('display', 'block');
+        $(this).find('.img-color').css('display', 'none');
+      }
+    );
+
         
     /////////////////////////// END DESKTOP //////////////////////////////////////
 

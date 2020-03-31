@@ -138,7 +138,8 @@ function load_posts_by_ajax(){
 				<?php while ( $blog_posts->have_posts() ) : $blog_posts->the_post(); ?>					
 					<?php
 					 $size_grid = get_field( 'size_grid' ); 
-					$external_link = get_field( 'check_external_link' )
+					$external_link = get_field( 'check_external_link' );
+					$the_external_link = get_field( 'external_link' );
 					 
 					?>
 					<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID()); ?>											
@@ -149,11 +150,12 @@ function load_posts_by_ajax(){
 								<p class="date-post"><?php echo get_the_date() ?></p>
 								<p class="link-post">
 									<?php 
-									if ($external_link) {
-										echo "<a href=''>link externo</a>";
-									}else{
-										echo "<a href=''>link interno</a>";
-									}
+									if ($external_link) { ?>									
+										<a href="<?php echo $the_external_link; ?>"  target="_blank"><img src="<?php echo get_template_directory_uri() ?>/images/foreign.svg" alt=""></a>
+									<?php }else{ ?>
+										
+										<a href='<?php echo get_post_permalink(get_the_ID()); ?> ' target="_blank">Leer más</a>
+									<?php } 
 									?>
 								</p>
 							</div>
