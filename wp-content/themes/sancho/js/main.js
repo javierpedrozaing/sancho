@@ -44,10 +44,22 @@
       
       $(this).prev('.hover-card').hide();
     });
+
+    $(".container-about .lideres .lideres-area .content-hover").hover(function(){      
+      $(this).prev('.hover-card').css('opacity', '1');      
+      $(this).css('cursor', 'default');
+      $(this).prev('.hover-card').hide();
+    });
+
+    $(".container-about .lideres .lideres-area .content-hover").on('click', function(e){
+      e.preventDefault();
+    });
     
-    $(document).on("click", ".modal-content .close", function(){
+    $(document).on("click", ".modal-content .close", function(){      
+      $(".search-modal-input").css('right', '256px');
       $('.container-about .modal-leaders').css('position', 'relative');
-      $('.container-about .modal-leaders').css('height', 'auto');      
+      
+       
     });
 
     $(document).on("click", ".modal-leaders", function () {
@@ -55,7 +67,7 @@
       
       $("html, body").animate({ scrollTop: 0 }, 600);
       console.log("modal leaders");
-      let photo_leader = $(this).data('photo');
+      let photo_leader = $(this).data('photo-modal');
       let name_leader = $(this).data('name');
       let position_leader = $(this).data('position');
       let description_leader = $(this).data('description');
@@ -63,6 +75,7 @@
       $(".modal-leaders .modal-body .name-leader").text(name_leader);
       $(".modal-leaders .modal-body .position-leader").text(position_leader);
       $(".modal-leaders .modal-body .description-leader").text(description_leader);
+      $(".search-container .search-modal-input").css('right', '273px');
 
     });
   
@@ -116,7 +129,7 @@
       
       if( jQuery(document).scrollTop() > ( jQuery(document).height() - 1000 ) && canBeLoaded == true ){
         
-        loadMorePost();        
+       // loadMorePost();        
       }
     });
 
@@ -161,7 +174,7 @@
              $(this).find('.hover-content').show();
              $(this).find('.hover-content').css('position', 'absolute');
              $(this).find('.hover-content').css('z-index', '9999')
-             $(this).find('.hover-content').css('top', '130px');
+             $(this).find('.hover-content').css('top', '80px');
              $(this).find('.hover-content').css('margin', '0 20px');
              $(this).find('.hover-content').css('color', '#fff');
              $(this).find('.hover-content').css('font-weight', 'bold');

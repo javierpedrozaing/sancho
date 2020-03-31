@@ -125,8 +125,8 @@ function load_posts_by_ajax(){
 		$args = array(
 			'post_type' => 'post',
 			'post_status' => 'publish',
-			'posts_per_page' => 7,
-			// 'orderby' => array( 'date' => 'DESC'),
+			'posts_per_page' => 20,
+		    'orderby' => array( 'date' => 'ASC'),
 			'paged' =>  $paged,
 		);
 		$blog_posts = new WP_Query( $args );		
