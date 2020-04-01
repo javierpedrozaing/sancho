@@ -14,20 +14,28 @@ global $wp_query;
                 $the_query = new WP_Query( $args );		
                 if ( $the_query->have_posts() ) :
                     while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                    <?php						
-                        $title = the_title();
+                    <?php						                        
                         $city = get_field('city');
                         $intro = get_field('introduction');
                         $description = get_field('description');
                         $email = get_field('email');
-                            ?>												            
-                    <hr>
-                    <h4 class="title-oportunity"><?php echo $title; ?></h4>
-                    <p class="city-oportunity"><?php echo $city; ?></p> 
-                    <p class="intro-oportunity"><?php echo $intro ?></p>
-                    <p class="description-oportunity"><?php echo $description; ?></p>
-                    <p class="email-oportunity"><?php echo $email; ?></p>            
+                    ?>												            
+                    
+                    <div class="container-opotunity">
+                        <div class="intro-content">
+                            <h4 class="title-oportunity"><?php the_title(); ?></h4>
+                            <p class="city-oportunity"><?php echo $city; ?></p> 
+                            <p class="intro-oportunity"><?php echo $intro ?></p>
+                            <p class="email-oportunity"><?php echo $email; ?></p>            
+                        </div>
 
+                        <a class="read-more collapsed" data-toggle="collapse" data-target="#description-<?php echo get_the_id() ?>">Ver más  </a><span class="read-more-icon fa"></span>
+
+                        <div id="description-<?php echo get_the_id()?>" class="collapse">                    
+                            <p class="description-oportunity"><?php echo $description; ?></p>                        
+                        </div>
+                    </div>
+                    <hr>
                     <?php endwhile; ?>
                 <?php endif; ?>	
     </div>

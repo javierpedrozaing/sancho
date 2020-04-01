@@ -1,7 +1,6 @@
 ( function( $ ) {   
   $(document).ready(function(){
-    
-   
+       
      /////////////////////////// START DESKTOP //////////////////////////////////////
      $('.menu-item-11').css('display', 'none'); // hide home
 
@@ -78,7 +77,39 @@
       $(".search-container .search-modal-input").css('right', '273px');
 
     });
+
+    // Manage toogle collapsed link oportunities    
+    $('.oportunities .container-opotunity').first().find('a').removeClass( "collapsed" );
+    $('.oportunities .container-opotunity').first().find('a').next('div').addClass('show');
   
+    
+    $('.oportunities .container-opotunity a').each(function(){
+      $(this).css('font-weight', 'bold');
+      $(this).css('cursor', 'pointer');
+      if ($(this).hasClass('collapsed')) {
+        $(this).text('Ver más');
+        $(this).next('span').addClass('fa-chevron-right');
+      }else{
+        $(this).text('Ver menos');        
+        $(this).next('span').addClass('fa-chevron-up');
+      }
+      
+    });
+
+    $('.oportunities .container-opotunity a').on('click', function(){      
+      $(this).next('span').removeClass('fa-chevron-right');      
+      $(this).next('span').removeClass('fa-chevron-up');
+      if ($(this).hasClass('collapsed')) {
+        $(this).text('Ver menos');              
+        $(this).next('span').addClass('fa-chevron-up');
+      }else{
+        $(this).text('Ver más');
+        
+        $(this).next('span').addClass('fa-chevron-right');
+      }
+
+    })
+
     // $('.grid').isotope({
     //   itemSelector: '.grid-item',
     //   percentPosition: true,

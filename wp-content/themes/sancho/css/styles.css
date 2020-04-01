@@ -79,7 +79,7 @@ input::-ms-clear {
          url('../fonts/times-bolditalic-04-webfont.svg#timesbold_italic') format('svg');
 
 }
-#footer, hr{
+#footer{
     display: none;
 }
 .show-scroll{
@@ -1778,7 +1778,7 @@ background-color: #c33625;
 
 .contact-desk .form-contact input[type='submit']{
 
-    border: 1px solid #EF4024;
+    border: 2px solid #EF4024;
     color: #EF4024;
     width: 100px;
     height: 35px;
@@ -1786,7 +1786,7 @@ background-color: #c33625;
 }
 
 .contact-desk .form-contact p {
-    margin:10px 0;
+    margin:15px 0;
     font-size: 14px;
 }
 
@@ -1795,5 +1795,81 @@ background-color: #c33625;
 }
 
 .contact-desk .form-contact textarea{
-    width: 316px;
+    width: 100%;
+    height: 90px;
+}
+
+.contact-desk .form-contact select, .contact-desk .form-contact input{
+    width: 100%;
+    height: 35px;
+    margin: 0;
+    padding: 0;
+}
+
+.content-area.the-work{
+    margin-top: 30px;
+}
+
+.content-area.the-work .filter{    
+    height: 77px;
+    margin: 10px 20px;
+}
+
+.content-area.the-work .filter h3{
+    font-size: 40px;
+    color:#484848;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+.oportunities {
+    width:80%;
+    margin:0 auto;
+    font-family: Helvetica;
+}
+
+.oportunities .container-opotunity{
+    margin:30px 0;
+}
+
+.oportunities h3 {
+    font-size: 44px;    
+    font-weight: bold;
+    margin:30px 0;
+    color:#484848;
+}
+.oportunities p{
+    margin:20px 0;
+}
+
+.oportunities .intro-content .title-oportunity{
+    font-size: 24px;
+    font-weight: bold;
+    color:#484848;
+    line-height: 38px;
+}
+
+.oportunities .intro-content .city-oportunity{
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.oportunities .intro-content  .email-oportunity{
+    font-weight: bold;
+}
+
+.oportunities .intro-content .read-more{
+    font-weight: bold !important;
+    text-decoration: underline !important;
+    display: block;
+    color:#484848 !important;
+    cursor: pointer;
+}
+
+.oportunities .container-opotunity .fa{    
+    margin: 0 10px;
+    font-size: 10px;
+    vertical-align: middle;
+    bottom: 1px;
+    position: relative;
 }

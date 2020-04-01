@@ -140,9 +140,11 @@ function load_posts_by_ajax(){
 					 $size_grid = get_field( 'size_grid' ); 
 					$external_link = get_field( 'check_external_link' );
 					$the_external_link = get_field( 'external_link' );
-					 
+					$permalink =  ($external_link) ? $the_external_link : get_post_permalink(get_the_ID());
+
 					?>
-					<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID()); ?>											
+					<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID()); ?>	
+					<a href="<?php echo $permalink?>" target="_blank">										
 						<div class="grid-item grid-item--<?php echo explode(':', $size_grid)[0]; ?>" ><img class="thumbnail-grid" src="<?php  echo $featured_img_url; ?>" alt="">
 							<div class="hover-content">
 								<p class="taq-post"><?php  echo the_category() ?> </p>
@@ -151,19 +153,20 @@ function load_posts_by_ajax(){
 								<p class="link-post">
 									<?php 
 									if ($external_link) { ?>									
-										<a href="<?php echo $the_external_link; ?>"  target="_blank"><img src="<?php echo get_template_directory_uri() ?>/images/foreign.svg" alt=""></a>
+										<a href="<?php echo $permalink; ?>"  target="_blank"><img src="<?php echo get_template_directory_uri() ?>/images/foreign.svg" alt=""></a>
 									<?php }else{ ?>
 										
-										<a href='<?php echo get_post_permalink(get_the_ID()); ?> ' target="_blank">Leer más</a>
+										<a href='<?php echo $permalink; ?> ' target="_blank">Leer más</a>
 									<?php } 
 									?>
 								</p>
 							</div>
 						</div>  									
-					
+					</a>
 				<?php endwhile; ?>
-				<?php endif; ?>			 
 			</div>
+			<?php endif; ?>			 
+			
 	 <?php
 		wp_die();
 	
