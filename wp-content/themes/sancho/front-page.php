@@ -23,7 +23,7 @@
 	?>
 
 	<?php 
-		$args = array( 'post_type' => 'bannerslide', 'posts_per_page' => 5 );
+		$args = array( 'post_type' => 'bannerslide', 'posts_per_page' => 5, 'post_name__in' => array('home-slider') );
 		$the_query = new WP_Query( $args );		
 	?>
 
@@ -66,20 +66,7 @@
 		<?php endif; ?>	
 	</div>
 	
-	<main id="main" class="site-main" role="main">
-		<?php 
 
-		if ( have_posts() ) :
-			while ( have_posts() ) :
-				
-				the_post();			
-				the_content();	
-			endwhile;
-		else :			
-		endif;
-			
-		 ?>
-	</main>
 
 	<div class="containergrid">
 		

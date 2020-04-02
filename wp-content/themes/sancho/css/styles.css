@@ -507,12 +507,18 @@ input::-ms-clear {
     font-size: 16px;
     color: #000;
 }
-.container-article .container-text-article p{
+.container-article .container-text-article .content-article p{
     font-family: "Helvetica";
     font-size: 17px;
     color: #666666;
     margin-top: 50px;
     line-height: 1.7;
+}
+
+.container-article .container-text-article .container-related p{
+    color:#fff;
+    font-size: 14px;
+    font-family: "Helvetica";
 }
 .container-article .container-text-article h2{
     font-family: "Helvetica";
@@ -541,15 +547,59 @@ input::-ms-clear {
     left: 50%;
     cursor: pointer;
 }
+
+.container-article .container-text-article h1{
+    font-size: 44px;
+    font-family: Helvetica;
+    color:#484848;    
+    font-weight: bold;
+}
+
+.container-article .container-text-article h3{
+    font-size: 24px;
+    font-family: Helvetica;
+    color:#797979;
+    margin-bottom:20px;
+    font-weight: bold;
+}
+
+.container-article .container-text-article h3 .author{
+    margin: 0 15px 0 0;
+}
+.container-article .container-text-article h3 .date-article{
+    margin: 0 0px 0 15px;
+}
+
+.container-article .container-text-article hr{
+    margin:40px 0;
+}
+
+.container-article .container-text-article .container-related{
+    color:#fff;
+}
+
+.container-article .content-article{
+    margin-bottom: 40px;
+
+}
+
 .container-related{
     font-size: 0;
 }
+
+.container-text-article .container-related  .grid-home{
+    left: 0px !important;
+    top:0px  !important;
+}
+
+
 .container-related h1{
     font-family: "Helvetica";
     font-size: 28px;
     color: #666666;
     text-align: center;
     padding-bottom: 15px;
+    
 }
 .container-related .yarpp-related li{
     width: 49.5%;
@@ -1685,7 +1735,7 @@ input::-ms-clear {
 
 }
 
-.gridhome {    
+.content-home .gridhome {    
     left: 20px;
     top: -13px;
 }

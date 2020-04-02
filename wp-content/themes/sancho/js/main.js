@@ -175,9 +175,85 @@
     );
 
         
+  
     /////////////////////////// END DESKTOP //////////////////////////////////////
 
+  
+    // video interna articulo
+    $('.container-video-article').on('click', function(){
+      $('.modal-video-article').css('display', 'block');
+      $('body, html').addClass('hidden-scroll').removeClass('show-scroll');
+      $('#video').attr('src', url + '&autoplay=1&showinfo=0');
+    });
+    $('.close-video-article').on('click', function(){
+      $('.modal-video-article').css('display', 'none');
+      $('body, html').addClass('show-scroll').removeClass('hidden-scroll');
+      $('#video').attr('src', ''); 
+    });
+    
 
+     // lista de sugerencias buscador general
+    $('.input-search').keydown(function(e) {
+      $(".list-sugestion").css("opacity", "1");
+      $(".list-sugestion").css("display", "block");
+    });
+    // ocultar lista de sugerencias
+    $('.input-search').keyup(function(e){
+        if( $(this).val() == '' ) {
+          $(".list-sugestion").css("opacity", "0");
+          $(".list-sugestion").css("display", "none");
+        }
+        if(e.which == 40){
+          // console.log('abajo');
+        }
+    });
+
+    var li = $('.search-container .list-sugestion li');
+    var liSelected;
+    $(window).keydown(function(e){
+        if(e.which === 40){
+            if(liSelected){
+                liSelected.removeClass('selected');
+                next = liSelected.next();
+                if(next.length > 0){
+                    liSelected = next.addClass('selected');
+                }else{
+                    liSelected = li.eq(0).addClass('selected');
+                }
+            }else{
+                liSelected = li.eq(0).addClass('selected');
+            }
+        }else if(e.which === 38){
+            if(liSelected){
+                liSelected.removeClass('selected');
+                next = liSelected.prev();
+                if(next.length > 0){
+                    liSelected = next.addClass('selected');
+                }else{
+                    liSelected = li.last().addClass('selected');
+                }
+            }else{
+                liSelected = li.last().addClass('selected');
+            }
+        }
+    });
+
+    // remover todas sugerencias de busqueda
+    $('.clean-search').on('click', function(){
+
+      $(".container-result-search ul").html("");
+
+      $('.letter-search p').each(function(){
+        console.log("limpiamos cookies" + $(this).text());
+        eraseCookie($(this).text());
+      });
+
+      $('.letter-search p').remove();
+      
+      $('.letter-search').html("");
+
+      $(".container-result-search ul").html('<div class="no-result-search"><p>No se encontraron resultados. Ingresa otro término de búsqueda.</p></div>');
+    });
     /////////////////////////// START MOBILE //////////////////////////////////////
      // activar pestaña menu mob
     $('.icon-menu-mobile').on('click', function(){

@@ -2,7 +2,7 @@
 <?php global $tDir; 
 ?>
 <?php get_header(); ?>
-<?php  get_template_part('part-header'); ?>
+<?php  get_template_part('template-parts/part-header'); ?>
 
 <?php 
 	// $array_query = json_decode(get_option('version'));
@@ -110,5 +110,5 @@
 	 </main>
 	 </section> 
 
-<?php  get_template_part('part-footer'); ?>
+<?php  get_template_part('template-parts/footer'); ?>
 <?php get_footer(); ?>
