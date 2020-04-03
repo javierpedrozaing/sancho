@@ -2,9 +2,12 @@
 <div class="container-general">
 	<div class="header-sancho">
 		<div class="icon-menu-mobile">
-			<span class="icon-mobile"></span>
+			<span  class="tab-collapse-leaders icon-mobile" data-toggle="collapse" href="#collapseMenu" role="button" aria-expanded="false" aria-controls="collapseMenu">
+			
+			</span>
 		</div>
-		<div class="menu-mobile">
+
+		<!-- <div class="menu-mobile">
 			<div class="option-menu-mobile">
 				<div class="close-menu-mobile">
 					<span class="logo-close-mob"></span>
@@ -25,7 +28,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<div class="logo-sancho-mobile">
 			<a href="<?php echo get_home_url(); ?>"><img src="<?php echo $tDir;?>/images/sancho_mobile.png"></a>
 		</div>
@@ -33,6 +36,8 @@
 			<a href="<?php echo get_home_url(); ?>"><img src="<?php echo $tDir;?>/images/sancho.png"></a>
 		</div>
 		<div class="menu-menu-header-container">
+
+		
 			<ul id="menu-header-desktop" class="menu">
 				<?php 
 					wp_nav_menu(
@@ -86,6 +91,27 @@
 		</div>
 	
 		
+	</div>
+
+	<div class="collapse" id="collapseMenu">
+				<ul id="menu-header-mobile" class="menu">
+					<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) )  ?>" onsubmit="">
+							<input id="input-search" class="input-search" type="text" value="<?php get_search_query() ?>" name="s" id="s" placeholder="<?php if(ICL_LANGUAGE_CODE == "en"){ ?>Search <?php }else {?>Buscar <?php }?>" autocomplete="off"/>							
+							<div class="search-container">
+								<span class="button-search"></span>
+							</div>
+							 
+					</form>
+					<?php 
+						wp_nav_menu(
+							array(
+								'theme_location' => 'top',
+								'menu_id'        => 'top-menu',
+							)
+						);
+					?>	
+					<?php ?>
+				</ul>
 	</div>
 
 

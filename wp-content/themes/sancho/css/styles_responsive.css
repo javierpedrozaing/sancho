@@ -3,8 +3,7 @@
 	.logo-sancho{
 		display: none;
 	}
-	.header-sancho{
-		background-color: #fff;
+	.header-sancho{		
 		padding-top: 5px;
 	}
 	.icon-menu-mobile {
@@ -15,7 +14,7 @@
 	.icon-menu-mobile .icon-mobile {
 	    background: url(../images/menu_mobile.png) no-repeat;
 	    display: block;
-	    background-position: center center;
+	    background-position: top center;
 	}
 	.search-container .input-search{
 		background-color: #fff;
@@ -26,7 +25,7 @@
 		width: 100%;
 	}
 	.search-container .button-search {
-	    background: url(../images/lupa_mobile.png) center no-repeat;
+	    background: url(../images/lupa.png) center no-repeat;
 	    right: 0;
 	    background-color: #fff;
 	}	
@@ -532,7 +531,8 @@
 	}
 	/*** grilla ***/
 	.content-home{
-		padding: 0 8px;
+		padding: 0;
+		margin:0;
 	}
 	.item_grid_home.height_g_home_1{
 		height: initial;
@@ -549,7 +549,7 @@
 	}
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 769px) {
 	/** plugin**/
 	.item_notice_plugin h1 {
 	    font-size: 13px;
@@ -603,8 +603,15 @@
 	}
 	.icon-menu-mobile{
 		width: 12%;
-	    height: 45px;
-	    margin-left: 8px;
+		height: 45px;
+		padding-top: 15px;
+		position: relative;
+		float: right;
+		right: 16px;
+	}
+	#collapseMenu{
+		top: -1px;
+    	position: relative;
 	}
 	.icon-menu-mobile .icon-mobile{
 	    height: 50px;
@@ -615,14 +622,18 @@
 		z-index: 9;
 	}
 	.logo-sancho-mobile{
-		width: 57%;
-    	padding-left: 11px;
+		width: 59%;
+        margin-left: 20px;
 	}
 	.search-container .button-search {
-	    height: 50px;
-    	width: 65px;
-    	right: 0;
-	    background-size: 24px 24px;
+		height: 40px;
+		width: 40px;
+		right: 0;
+		background-size: 24px 24px;
+		background-color: #484848;
+		top: 56px;
+		right: 27px;
+		display: block;
 	}
 	.search-container .search-modal-input{
 		min-width: 65px;
@@ -720,6 +731,21 @@
 	.container-about .modal-leaders{
 		display: none;
 	}
+
+
+	.gridhome .hover-content{
+		top:15px;
+	}
+
+	.content-home .gridhome {
+		left: 0px;
+	}
+
+	.grid-item--square { height: 200px;  width: 48%; }
+	.grid-item--rectangular { width: 100%; height: 250px; }
+	.grid-item--squarex2 { height: 250px; width: 100%;}
+
+
 }
 
 @media screen and (max-width: 320px){
@@ -780,10 +806,11 @@
 		width: 65.9%;
 	}
 	.content-area, .container-about{
-		margin-top: 85px;
+		margin-top: 0px;
 	}
 	.content-home{
-		padding: 0 8px;
+		padding: 0;
+		margin:0;
 	}
 	.modal-video-article .close-modal-article{
     	width: 40px;
@@ -796,7 +823,8 @@
 	    width: 10%;
 	    height: 63px;
 	    margin-top: 2px;
-	    margin-left: 8px;
+		margin-left: 8px;
+		float: right;
 	}
 	.icon-menu-mobile .icon-mobile{
 		height: 70px;
@@ -1010,4 +1038,35 @@
 	.container-polices-terms{
 		margin-top: 110px;
 	}
+}
+
+ul#menu-header-mobile{
+	width:100%;
+	background-color: #ef4024;
+	padding: 6px 15px;
+}
+
+ul#menu-header-mobile li{
+	text-align: left;
+	margin:5px 15px;
+}
+
+ul#menu-header-mobile li a{
+	text-decoration: none;
+	color:#fff;
+	font-size: 1.3rem;
+	font-family: Helvetica;
+}
+
+ul#menu-header-mobile #input-search{
+	font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    background: #F07A67;
+    border: 0;
+    margin: 0 13px;
+    height: 40px;
+    padding: 10px;
+    color: #fff;
+    width: 81%;
 }

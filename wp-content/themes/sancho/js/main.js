@@ -53,7 +53,7 @@
     $(".container-about .lideres .lideres-area .content-hover").on('click', function(e){
       e.preventDefault();
     });
-    
+
     $(document).on("click", ".modal-content .close", function(){      
       $(".search-modal-input").css('right', '256px');
       $('.container-about .modal-leaders').css('position', 'relative');
@@ -146,9 +146,25 @@
       // }
       itemSelector: '.grid-item',
       
-      gutter: 4,                   
-      horizontalOrder: false 
+      gutter: 4,                         
     });
+
+    $( ".gridhome .grid-item" ).hover(function() {
+      console.log("hover");
+      $(this).find('.hover-content').show();
+      $(this).find('.hover-content').css('position', 'absolute');
+      $(this).find('.hover-content').css('z-index', '9999')
+      $(this).find('.hover-content').css('top', '80px');
+      $(this).find('.hover-content').css('margin', '0 20px');
+      $(this).find('.hover-content').css('color', '#fff');
+      $(this).find('.hover-content').css('font-weight', 'bold');
+      
+        $(this).addClass('active_hover_grid');
+      
+      }, function() {
+        $(this).removeClass('active_hover_grid');
+        $(this).find('.hover-content').hide();
+      });    
 
     // load init post HOME
     loadPostInit();
@@ -181,6 +197,7 @@
     var url = $('.embedvideo').attr('src');
     // video interna articulo
     $('.container-video-article').on('click', function(){
+      
       $('.modal-video-article').css('display', 'block');
       $('body, html').addClass('hidden-scroll').removeClass('show-scroll');
       $('#video').attr('src', url);
@@ -193,20 +210,20 @@
     
 
      // lista de sugerencias buscador general
-    $('.input-search').keydown(function(e) {
-      $(".list-sugestion").css("opacity", "1");
-      $(".list-sugestion").css("display", "block");
-    });
-    // ocultar lista de sugerencias
-    $('.input-search').keyup(function(e){
-        if( $(this).val() == '' ) {
-          $(".list-sugestion").css("opacity", "0");
-          $(".list-sugestion").css("display", "none");
-        }
-        if(e.which == 40){
-          // console.log('abajo');
-        }
-    });
+    // $('.input-search').keydown(function(e) {
+    //   $(".list-sugestion").css("opacity", "1");
+    //   $(".list-sugestion").css("display", "block");
+    // });
+    // // ocultar lista de sugerencias
+    // $('.input-search').keyup(function(e){
+    //     if( $(this).val() == '' ) {
+    //       $(".list-sugestion").css("opacity", "0");
+    //       $(".list-sugestion").css("display", "none");
+    //     }
+    //     if(e.which == 40){
+    //       // console.log('abajo');
+    //     }
+    // });
 
     var li = $('.search-container .list-sugestion li');
     var liSelected;
@@ -258,6 +275,7 @@
      // activar pestaña menu mob
     $('.icon-menu-mobile').on('click', function(){
       $('.menu-mobile').addClass('active-menu-mobile');
+      
     });
     $('.logo-close-mob').on('click', function(){
       $('.menu-mobile').removeClass('active-menu-mobile');
@@ -294,12 +312,23 @@
                 gutter: 4,                                             
             });
 
+            $( ".gridhome .grid-item" ).click(function(e){
+              
+              $(this).find('.hover-content').show();
+              $(this).find('.hover-content').css('position', 'absolute');
+              $(this).find('.hover-content').css('z-index', '9999')
+              // $(this).find('.hover-content').css('top', '80px');
+              $(this).find('.hover-content').css('margin', '0 20px');
+              $(this).find('.hover-content').css('color', '#fff');
+              $(this).find('.hover-content').css('font-weight', 'bold');              
+            });  
+
             $( ".gridhome .grid-item" ).hover(function() {
               console.log("hover");
               $(this).find('.hover-content').show();
               $(this).find('.hover-content').css('position', 'absolute');
               $(this).find('.hover-content').css('z-index', '9999')
-              $(this).find('.hover-content').css('top', '80px');
+              // $(this).find('.hover-content').css('top', '80px');
               $(this).find('.hover-content').css('margin', '0 20px');
               $(this).find('.hover-content').css('color', '#fff');
               $(this).find('.hover-content').css('font-weight', 'bold');
@@ -315,63 +344,6 @@
             }
         }
       });      
-
-    }
-
-
-
-    function loadMorePost(){                       
-              var data = {
-                  'action': 'load_more_posts_by_ajax',
-                  'page':  themeSancho._current_page,
-                  'max_page': themeSancho._max_page,
-                  //'security': blog.security
-              };              
-
-              $.ajax({
-                url : themeSancho._ajax_url,
-                data:data,
-                type:'POST',
-                beforeSend: function( xhr ){
-                  // you can also add your own preloader here
-                  // you see, the AJAX call is in process, we shouldn't run it again until complete
-                  canBeLoaded = false; 
-                },
-                success:function(response){
-                  
-                  if (themeSancho._current_page != themeSancho._max_page) {          
-                    themeSancho._current_page++;
-                     
-                      if($.trim(response) != '')  {
-                        console.log("current page =>",themeSancho._current_page);
-                      console.log("current max_page =>",themeSancho._max_page);
-                
-                        if (themeSancho._current_pag <= themeSancho._max_page) {
-                          $('.containergrid').append(response);
-                
-                          $('.gridhome').masonry({
-                              itemSelector: '.grid-item',                            
-                              gutter: 4,                                             
-                          });
-                            canBeLoaded = true;
-                            themeSancho._current_page++;                   
-                            canBeLoaded = true;
-                        }
-                        
-                      
-                      }
-                    } 
-                },
-                complete: function(){
-                  $( ".gridhome .grid-item" ).hover(function() {
-                    console.log("hover");
-                     $(this).addClass('active_hover_grid');
-                   }, function() {
-                     $(this).removeClass('active_hover_grid');
-                   });
-                },
-              });
-
 
     }
 

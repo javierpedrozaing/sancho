@@ -106,14 +106,16 @@ get_header(); ?>
 				<?php endif ?>
 				
 				<?php endwhile; ?>
-			</div>
-			<div class="container-text-article">
+
+				<div class="container-text-article">
 				<h1> <?php echo the_title(); ?></h1>				
 				<h3><span class="author"><?php echo get_the_author_meta('user_firstname');  ?></span> | <span class="date-article"><?php the_date() ?></span></h3>	
 				<div class="content-article">					
 					<?php echo get_the_content(); ?>
 				</div>
 				<hr>
+
+				<!-- Articulos relacionados -->
 
 				<div class="container-related">				
 					<?php 
@@ -128,10 +130,9 @@ get_header(); ?>
 							
 							$args = array(
 								'post_type' => 'post',
-								'post_status' => 'publish',
-								
+								'post_status' => 'publish',								
 								'tag' => $tags_related,
-								'post__not_in ' => array( get_the_ID()),
+								'post__not_in' => array(get_the_ID() ),
 								'posts_per_page' => 20,								
 								'orderby' => array( 'date' => 'ASC'),						
 							);
@@ -153,6 +154,7 @@ get_header(); ?>
 					
 						$related_post = new WP_Query( $args );
 					?>
+
 					<?php if ( $related_post->have_posts() ) : ?>
 					<h3>También te puede interesar</h3>
 						<div class="gridhome">
@@ -193,8 +195,7 @@ get_header(); ?>
 			</div>
 
 		
-
-			
+			</div>			
 						
 	</div>
 		

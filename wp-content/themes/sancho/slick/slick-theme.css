@@ -192,6 +192,22 @@
 {
     opacity: 1;
     background: white;
-    
-    
+        
+}
+
+
+@media screen and (max-width: 769px) {
+    .slick-dots{
+        right: 13.5rem;
+        top: 7.5rem;
+    }
+
+    .slick-next, .slick-prev{
+        width: 44px;
+        height: 40px;
+        bottom: -14px;
+    }
+    .slick-prev{
+        left: 276px;
+    }
 }
