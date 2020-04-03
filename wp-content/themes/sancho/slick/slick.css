@@ -88,8 +88,14 @@
 }
 .slick-slide img
 {
-    display: block;
+    display: block;    
+    max-height: 600px;
 }
+
+.container-article .slick-slide img{
+ 
+}
+
 .slick-slide.slick-loading img
 {
     display: none;

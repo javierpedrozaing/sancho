@@ -160,7 +160,7 @@
       
       if( jQuery(document).scrollTop() > ( jQuery(document).height() - 1000 ) && canBeLoaded == true ){
         
-       // loadMorePost();        
+        loadPostInit();        
       }
     });
 
@@ -178,12 +178,12 @@
   
     /////////////////////////// END DESKTOP //////////////////////////////////////
 
-  
+    var url = $('.embedvideo').attr('src');
     // video interna articulo
     $('.container-video-article').on('click', function(){
       $('.modal-video-article').css('display', 'block');
       $('body, html').addClass('hidden-scroll').removeClass('show-scroll');
-      $('#video').attr('src', url + '&autoplay=1&showinfo=0');
+      $('#video').attr('src', url);
     });
     $('.close-video-article').on('click', function(){
       $('.modal-video-article').css('display', 'none');
@@ -263,48 +263,57 @@
       $('.menu-mobile').removeClass('active-menu-mobile');
     });
 
-    /////////////////////////// END MOBILE //////////////////////////////////////
+    $(".post-categories a[rel='category tag']").each(function(){
+      $(this).removeAttr('href');
+      $(this).css('cursor', 'default');
+    });
 
+    /////////////////////////// END MOBILE //////////////////////////////////////
   });    
 
     function loadPostInit(){
       
       var data = {
-          'action': 'load_posts_by_ajax',
-          'page': 1,
-        // 'security': blog.security
+        'action': 'load_posts_by_ajax',
+        'query': themeSancho.posts,
+        'page':  themeSancho._current_page,
+        'max_page': themeSancho._max_page + 1,
       };   
       
-      $.post(themeSancho._ajax_url, data, function(response) {                
-          if($.trim(response) != '') {
-  
-            $('.containergrid').append(response);
+      $.post(themeSancho._ajax_url, data, function(response) {  
+        
+        
+        if (themeSancho._current_page != themeSancho._max_page) {          
+          themeSancho._current_page++;
+            if($.trim(response) != '') {
+    
+              $('.containergrid').append(response);
             
-            $('.gridhome').masonry({
-              itemSelector: '.grid-item',                            
-              gutter: 4,                                             
-          });
+              $('.gridhome').masonry({
+                itemSelector: '.grid-item',                            
+                gutter: 4,                                             
+            });
 
-          $( ".gridhome .grid-item" ).hover(function() {
-             console.log("hover");
-             $(this).find('.hover-content').show();
-             $(this).find('.hover-content').css('position', 'absolute');
-             $(this).find('.hover-content').css('z-index', '9999')
-             $(this).find('.hover-content').css('top', '80px');
-             $(this).find('.hover-content').css('margin', '0 20px');
-             $(this).find('.hover-content').css('color', '#fff');
-             $(this).find('.hover-content').css('font-weight', 'bold');
-             
-              $(this).addClass('active_hover_grid');
-            
-            }, function() {
-              $(this).removeClass('active_hover_grid');
-              $(this).find('.hover-content').hide();
+            $( ".gridhome .grid-item" ).hover(function() {
+              console.log("hover");
+              $(this).find('.hover-content').show();
+              $(this).find('.hover-content').css('position', 'absolute');
+              $(this).find('.hover-content').css('z-index', '9999')
+              $(this).find('.hover-content').css('top', '80px');
+              $(this).find('.hover-content').css('margin', '0 20px');
+              $(this).find('.hover-content').css('color', '#fff');
+              $(this).find('.hover-content').css('font-weight', 'bold');
+              
+                $(this).addClass('active_hover_grid');
+              
+              }, function() {
+                $(this).removeClass('active_hover_grid');
+                $(this).find('.hover-content').hide();
+              });                
+            } else {
+                $('.loadmore').hide();
             }
-          );                
-          } else {
-              $('.loadmore').hide();
-          }
+        }
       });      
 
     }
@@ -330,21 +339,28 @@
                 },
                 success:function(response){
                   
-                  if($.trim(response) != '')  {
-                    console.log("current page =>",themeSancho._current_page);
-                  console.log("current max_page =>", data['max_page']);
-             
-                    
-                     $('.containergrid').append(response);
-                         
-                    $('.gridhome').masonry({
-                      itemSelector: '.grid-item',                            
-                      gutter: 4,                                             
-                  });
-                      canBeLoaded = true;
-                      themeSancho._current_page++;                   
-                      canBeLoaded = true;
-                  } 
+                  if (themeSancho._current_page != themeSancho._max_page) {          
+                    themeSancho._current_page++;
+                     
+                      if($.trim(response) != '')  {
+                        console.log("current page =>",themeSancho._current_page);
+                      console.log("current max_page =>",themeSancho._max_page);
+                
+                        if (themeSancho._current_pag <= themeSancho._max_page) {
+                          $('.containergrid').append(response);
+                
+                          $('.gridhome').masonry({
+                              itemSelector: '.grid-item',                            
+                              gutter: 4,                                             
+                          });
+                            canBeLoaded = true;
+                            themeSancho._current_page++;                   
+                            canBeLoaded = true;
+                        }
+                        
+                      
+                      }
+                    } 
                 },
                 complete: function(){
                   $( ".gridhome .grid-item" ).hover(function() {

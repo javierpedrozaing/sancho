@@ -58,11 +58,13 @@ function my_jquery_enqueue() {
 			'_ajax_nonce'=>wp_create_nonce( 'dhvc_form_ajax_nonce' ),
 		'_themes_url'=>  get_template_directory_uri(),
 		'_site_url'=> get_site_url(),
-		'_current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
+		'_current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 0,
+		'posts' => json_encode( $wp_query->query_vars ), // everything about your loop is here
 		'_max_page' => $wp_query->max_num_pages,
 	);
 
 	wp_localize_script('sancho-script', 'themeSancho', $themeSancho);
+	wp_enqueue_script( 'sancho-script' );
 }
 add_action("wp_enqueue_scripts", "my_jquery_enqueue");
 
@@ -118,24 +120,25 @@ function guias(){
 add_action('wp_ajax_load_posts_by_ajax', 'load_posts_by_ajax');
 add_action('wp_ajax_nopriv_load_posts_by_ajax', 'load_posts_by_ajax');
 
-function load_posts_by_ajax(){
-	
-		//check_ajax_referer('load_more_posts', 'security');
-		$paged = $_POST['page'];
-		$args = array(
-			'post_type' => 'post',
-			'post_status' => 'publish',
-			'posts_per_page' => 20,
-		    'orderby' => array( 'date' => 'ASC'),
-			'paged' =>  $paged,
-		);
-		$blog_posts = new WP_Query( $args );		
+function load_posts_by_ajax(){	
+	$args = json_decode( stripslashes( $_POST['query'] ), true );
+	$args['paged'] = $_POST['page'] + 1; // we need next page to be loaded
+	$args['post_status'] = 'publish';
+	$args['posts_per_page'] = 20;
+		//check_ajax_referer('load_more_posts', 'security');				
+		// $args = array(
+		// 	'post_type' => 'post',
+		// 	'post_status' => 'publish',
+		// 	'posts_per_page' => 7,		    
+		// 	'paged' =>  $paged,
+		// );
+		query_posts( $args );		
 		?>	 	
 	
-			<?php if ( $blog_posts->have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
 			<div class="gridhome">
 				<div class="grid-sizer"></div>
-				<?php while ( $blog_posts->have_posts() ) : $blog_posts->the_post(); ?>					
+				<?php while ( have_posts() ) : the_post(); ?>					
 					<?php
 					 $size_grid = get_field( 'size_grid' ); 
 					$external_link = get_field( 'check_external_link' );
@@ -176,32 +179,36 @@ add_action('wp_ajax_load_more_posts_by_ajax', 'load_more_posts_by_ajax');
 add_action('wp_ajax_nopriv_load_more_posts_by_ajax', 'load_more_posts_by_ajax');
 
 function load_more_posts_by_ajax(){
-	$paged_post = $_POST["page"]  + 1;
+	$paged = $_POST['page'] + 1;
+		$max_page = $_POST['max_page'];
+		echo("<p style='top:-15px; position:relative;'> max page => " . $max_page . "===" . "page => " . $paged . "</page>" . "</p>");
+		
 
-	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : $paged_post;
-		//check_ajax_referer('load_more_posts', 'security');		
-		$args = array(
-			'post_type' => 'post',
-			'post_status' => 'publish',
-			'posts_per_page' => 4,
-			'paged' =>  $paged,
-		);
-		$blog_posts = new WP_Query( $args );
-		?>	 	 			
-			<?php if ( $blog_posts->have_posts() ) : ?>
-			<div class="gridhome">
-				<div class="grid-sizer"></div>
-				<?php while ( $blog_posts->have_posts() ) : $blog_posts->the_post(); ?>					
-					<?php $size_grid = get_field( 'size_grid' ); ?>
-					<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID()); ?>											
-						<div class="grid-item grid-item--<?php echo explode(':', $size_grid)[0]; ?>" ><img class="thumbnail-grid" src="<?php  echo $featured_img_url; ?>" alt=""></div>  									
-				<?php endwhile; ?>
-			</div>
-				<?php endif; ?>			
-		<?php
-	 
-		wp_die();
-	
+	if ($max_page <= $paged_post) {				
+		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : $paged_post;
+			//check_ajax_referer('load_more_posts', 'security');		
+			$args = array(
+				'post_type' => 'post',
+				'post_status' => 'publish',
+				'posts_per_page' => 7,
+				'paged' =>  $paged,
+			);
+			$blog_posts = new WP_Query( $args );
+			?>	 	 			
+				<?php if ( $blog_posts->have_posts() ) : ?>
+				<div class="gridhome">
+					<div class="grid-sizer"></div>
+					<?php while ( $blog_posts->have_posts() ) : $blog_posts->the_post(); ?>					
+						<?php $size_grid = get_field( 'size_grid' ); ?>
+						<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID()); ?>											
+							<div class="grid-item grid-item--<?php echo explode(':', $size_grid)[0]; ?>" ><img class="thumbnail-grid" src="<?php  echo $featured_img_url; ?>" alt=""></div>  									
+					<?php endwhile; ?>
+				</div>
+					<?php endif; ?>			
+			<?php
+		
+			wp_die();
+	}
 }
 
 add_action('wp_ajax_customSearch', 'customSearch');

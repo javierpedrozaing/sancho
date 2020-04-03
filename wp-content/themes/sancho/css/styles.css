@@ -529,9 +529,11 @@ input::-ms-clear {
     margin: 75px auto 30px;
     text-align: center;
 }
+
+
 .container-article .container-video-article{
     position: relative;
-    height: 632px;
+    height: 452px;
 }
 .container-article .container-video-article img{
     height: 100%;

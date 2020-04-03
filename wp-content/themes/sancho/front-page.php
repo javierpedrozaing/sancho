@@ -45,7 +45,7 @@
 					   if( !empty( $imageSlide ) ): ?>
 					   	<div class="content-slide">							
 							<a href="<?php echo esc_url( $linkSlide ); ?> " target="_blank" class="slide-block">
-								<img src="<?php echo esc_url($imageSlide['url']); ?>" alt="<?php echo esc_attr($imageSlide['alt']); ?>" />
+								<img src="<?php echo esc_url($imageSlide['url']); ?>" alt="" />
 								<h4><?php  echo $titleSlide; ?> </h4>
 								<p class="text-slide"><?php echo $contentSlide; ?></p>
 							</a>							
