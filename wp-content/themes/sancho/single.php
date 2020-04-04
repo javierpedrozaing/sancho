@@ -28,6 +28,7 @@ get_header(); ?>
 					   // display a sub field value
 					   $titleSlide = get_sub_field('titulo');
 					   $imageSlide = get_sub_field('imagen');
+					   $imageSlideMobile = get_sub_field('imagen_mobile');
 					   
 					   $contentSlide = get_sub_field('texto');
 					   $linkSlide = get_sub_field('link');
@@ -55,8 +56,9 @@ get_header(); ?>
 								<img class="embedvideo" hidden src="https://www.youtube.com/embed/<?php echo $idvideo ?>?feature=oembed&autoplay=1&showinfo=0" alt="">
 								<img src="https://img.youtube.com/vi/<?php echo $idvideo ?>/hqdefault.jpg">
 							</div> 
-							<?php else :?> 
-								<img src="<?php echo esc_url($imageSlide['url']); ?>" alt="" />
+							<?php else :?> 								
+								<img class="mobile" src="<?php echo esc_url($imageSlideMobile['url']); ?>" alt="" />
+								<img class="desktop" src="<?php echo esc_url($imageSlide['url']); ?>" alt="" />
 							<?php endif; ?>
 								
 								<h4><?php  echo $titleSlide; ?> </h4>
@@ -92,20 +94,7 @@ get_header(); ?>
 				</div>
 		</div>		
 			<div class="banner-article">
-				<?php while ( have_posts() ) : the_post(); ?>	
-				<?php 
-					$image_desktop = get_field('image_desk');
-					$image_mobile = get_field('image_mobil');
-				 ?>
-		
-				 <?php if ($image_desktop): ?>
-					<img class="img-article-desk" src="<?php the_field('image_desk'); ?>">				 	
-				 <?php endif ?>
-				<?php if ($image_mobile): ?>
-					<img class="img-article-mobile" src="<?php the_field('image_mobil');?>">	
-				<?php endif ?>
 				
-				<?php endwhile; ?>
 
 				<div class="container-text-article">
 				<h1> <?php echo the_title(); ?></h1>				

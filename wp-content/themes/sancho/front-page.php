@@ -39,13 +39,15 @@
 					   // display a sub field value
 					   $titleSlide = get_sub_field('titulo');
 					   $imageSlide = get_sub_field('imagen');
+					   $imageSlideMobile = get_sub_field('imagen_mobile');
 					   $contentSlide = get_sub_field('texto');
 					   $linkSlide = get_sub_field('link');
 
 					   if( !empty( $imageSlide ) ): ?>
 					   	<div class="content-slide">							
 							<a href="<?php echo esc_url( $linkSlide ); ?> " target="_blank" class="slide-block">
-								<img src="<?php echo esc_url($imageSlide['url']); ?>" alt="" />
+								<img class="mobile" src="<?php echo esc_url($imageSlideMobile['url']); ?>" alt="" />
+								<img class="desktop" src="<?php echo esc_url($imageSlide['url']); ?>" alt="" />
 								<h4><?php  echo $titleSlide; ?> </h4>
 								<p class="text-slide"><?php echo $contentSlide; ?></p>
 							</a>							

@@ -30,7 +30,7 @@
 			</div>
 		</div> -->
 		<div class="logo-sancho-mobile">
-			<a href="<?php echo get_home_url(); ?>"><img src="<?php echo $tDir;?>/images/sancho_mobile.png"></a>
+			<a href="<?php echo get_home_url(); ?>"><img src="<?php echo $tDir;?>/images/sancho.png"></a>
 		</div>
 		<div class="logo-sancho">
 			<a href="<?php echo get_home_url(); ?>"><img src="<?php echo $tDir;?>/images/sancho.png"></a>
@@ -49,13 +49,13 @@
 				?>	
 				<?php 
 				$args = array( 'post_type' => 'redessociales', 'posts_per_page' => 5 );
-				$the_query = new WP_Query( $args ); 				
+				$social_media = new WP_Query( $args ); 				
 				?>				
 				
 			</ul>
 			<div class="content-social-icons">
-					<?php if ( $the_query->have_posts() ) : ?>
-						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+					<?php if ( $social_media->have_posts() ) : ?>
+						<?php while ( $social_media->have_posts() ) : $social_media->the_post(); ?>
 						<?php 
 						$image = get_field('icono');
 						$url = get_field('url');
@@ -112,6 +112,26 @@
 					?>	
 					<?php ?>
 				</ul>
+
+				<?php 
+				$args = array( 'post_type' => 'redessociales', 'posts_per_page' => 5 );
+				$social_media_mb = new WP_Query( $args ); 				
+				?>	
+				<div class="content-social-icons mobil">
+					<?php if ( $social_media_mb->have_posts() ) : ?>
+						<?php while ( $social_media_mb->have_posts() ) : $social_media_mb->the_post(); ?>
+						<?php 
+						$image = get_field('icono-mobile');
+						$url = get_field('url');
+						if( !empty( $image ) ): ?>
+						<a href="<?php echo esc_url( $url ); ?> " target="_blank">
+							<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+						</a>
+						<?php endif; ?>
+							<?php wp_reset_postdata(); ?>		
+						<?php endwhile; ?>
+					<?php endif; ?>				
+			</div>
 	</div>
 
 

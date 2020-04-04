@@ -338,7 +338,7 @@ input::-ms-clear {
 
 .container-about{
     position: relative;
-    margin-bottom: 130px;
+    
 }
 /* .about-img{
     opacity: 0;
@@ -1445,6 +1445,19 @@ input::-ms-clear {
 .content-social-icons a:first-child img{
     width: 7px;
 }
+.content-social-icons.mobil a:first-child img{
+    width: 10px;
+}
+
+.content-social-icons.mobil a{
+    margin-left:20px;
+}
+
+.content-social-icons.mobil{
+    height: 65px;
+}
+
+
 
 .content-social-icons{    
     display: inline-block;    
@@ -1452,6 +1465,7 @@ input::-ms-clear {
     margin: 2px 0;    
     top: 20px;
     position: relative;
+ 
 }
 
 .content-social-icons img{
@@ -1469,6 +1483,7 @@ input::-ms-clear {
     font-family: "Helvetica";
     font-weight: bold;
 }
+
 
 .content-slide .slide-block p{        
     display: block;
@@ -1511,7 +1526,7 @@ input::-ms-clear {
 }
 
 .lideres-area{
-    margin-top: 50px;
+    margin: 50px 0;
     width:100%;
 }
 
@@ -1725,6 +1740,45 @@ input::-ms-clear {
 .modal-leaders .modal-content{
     background-color: #00000085;
 }
+
+.modal-leaders-mobil{
+    width:100%;
+    margin:0;
+}
+
+.modal-leaders-mobil .modal-content{
+    display: block;
+    border: none;
+    margin-top: -31px;
+
+}
+
+.modal-leaders-mobil .modal-content .modal-body{
+    flex: 0%;
+    padding: 0;
+}
+
+.modal-leaders-mobil .modal-content .modal-body .detail-leader-mobil .content-detail{
+    margin:20px;
+}
+
+.modal-leaders-mobil .modal-content button{
+    top: 31px;
+    position: relative;
+    z-index: 99999;
+    background-color: #171515d1;
+    width: 100%;
+    height: 30px;
+}
+
+.modal-leaders-mobil .modal-content button span{
+    float: left;
+    left: 20px;
+    position: relative;
+    color: #fff;    
+    font-size: 1rem;
+}
+
 
 
 /* ///////////////////////////////////////////// GRILLA ////////////////////////////////////////*/ 
@@ -2039,6 +2093,19 @@ background-color: #c33625;
   
 #menu-header-mobile .search-container .button-search{
     top:6px;
+}
+
+.content-hover-mobil {
+    display: none;
+    
+}
+
+.content-slide img.mobile{
+    display: none;
+}
+
+.content-slide img.desktop{
+    display: block;
 }
 
   /* 48em = 768px */

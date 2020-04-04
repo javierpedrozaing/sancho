@@ -78,6 +78,22 @@
 
     });
 
+    $(document).on("click", ".modal-leaders-mobil", function () {
+      
+      
+      $("html, body").animate({ scrollTop: 0 }, 600);
+      console.log("modal leaders mobil");
+      let photo_leader = $(this).data('photo-modal');
+      let name_leader = $(this).data('name');
+      let position_leader = $(this).data('position');
+      let description_leader = $(this).data('description');
+      $(".modal-leaders-mobil .modal-body .photo-leader").attr('src', photo_leader);
+      $(".modal-leaders-mobil .modal-body .name-leader").text(name_leader);
+      $(".modal-leaders-mobil .modal-body .position-leader").text(position_leader);
+      $(".modal-leaders-mobil .modal-body .description-leader").text(description_leader);      
+
+    });
+
     // Manage toogle collapsed link oportunities    
     $('.oportunities .container-opotunity').first().find('a').removeClass( "collapsed" );
     $('.oportunities .container-opotunity').first().find('a').next('div').addClass('show');
