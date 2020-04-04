@@ -11,11 +11,12 @@ global $wp_query;
     $email = get_field('correo', $wp_query->post->ID); 
 ?>
 <div class="contact-desk">
-    <div class="one-section row">
-        <div class="col-xs-1 col-md-3 offset-md-1">
+    <div class="row">
+        <div class="first-section col-xs-1 col-md-3 offset-md-1 order-last order-md-1">
             <div class="contact-info">
                 <p><?php echo $direccion; ?></p>
                 <p><?php echo $telefono ?></p>
+                <p>Contacto</p>
                 <p><?php echo $email ?></p>
             </div>
             <div class="form-contact">
@@ -24,7 +25,7 @@ global $wp_query;
             </div>
         </div>
 
-        <div class="col-xs-1 col-md-8">
+        <div class="col-xs-1 col-md-8 order-first order-md-2">
             <div class="location-contact">
                 <img src="<?php echo get_template_directory_uri() ?>/images/location.PNG" alt="">
             </div>

@@ -1762,6 +1762,22 @@ input::-ms-clear {
     margin:20px;
 }
 
+.modal-leaders-mobil .modal-content .modal-body .detail-leader-mobil .content-detail .name-leader{
+    font-size: 1.5rem;
+    color: #484848;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.modal-leaders-mobil .modal-content .modal-body .detail-leader-mobil .content-detail .position-leader{
+    font-size: 1rem;
+    color: #484848;    
+    margin: 5px 0;
+}
+.modal-leaders-mobil .modal-content .modal-body .detail-leader-mobil .content-detail  .description-leader{
+    margin:10px 0;
+}
+
 .modal-leaders-mobil .modal-content button{
     top: 31px;
     position: relative;
@@ -2093,6 +2109,10 @@ background-color: #c33625;
   
 #menu-header-mobile .search-container .button-search{
     top:6px;
+}
+
+#menu-header-mobile input::placeholder{
+    color:#fff;
 }
 
 .content-hover-mobil {

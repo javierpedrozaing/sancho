@@ -72,7 +72,7 @@
 		vertical-align: top;
 		padding-right: 25px;
     	padding-left: 11px;
-    	padding-top: 16px;
+		padding-top: 12px;
 	}
 	.option-menu-mobile{
 		width: 73%;
@@ -329,10 +329,10 @@
 		margin-bottom: 12px;
 	}
 	.container-company .two-company{
-		width: 100%;
+		width: 30%;
 	}
 	.container-company .container-img-company{
-		width: 50%;
+		width: 100%;
 		height: 120px;
 	}
 	.container-search-ubication{
@@ -747,9 +747,9 @@
 		left: 0px;
 	}
 
-	.grid-item--square { height: 160px;  width: 48%; }
-	.grid-item--rectangular { width: 100%; height: 250px; }
-	.grid-item--squarex2 { height: 250px; width: 100%;}
+	.grid-item--rectangular { width: 32%; height: 150px; }
+	.grid-item--square { height: 150px;  width: 16%; }
+	.grid-item--squarex2 { height: 305px; width: 32%;}
 
 	.lideres{
 		padding: 0 3%;
@@ -776,6 +776,25 @@
 	
 	.modal-open{
 		overflow: auto;
+	}
+
+	.contact-desk .first-section{
+		margin:20px;
+	}
+	.contact-desk .form-contact h3{
+		display: none;
+	}
+
+	.contact-desk .form-contact input[type='submit']{
+		width:100%;
+	}
+
+	.aliados-container{
+		margin:0;
+	}
+
+	.container-company{
+		margin:20px;
 	}
 }
 
@@ -807,7 +826,15 @@
 	.item_grid_home.width_g_home_1{
 		width: 64.8%;
 	}
-} 
+}
+
+@media screen and (max-width: 420px){
+	.grid-item--square { height: 160px;  width: 48%; }
+	.grid-item--rectangular { width: 100%; height: 250px; }
+	.grid-item--squarex2 { height: 250px; width: 100%;}
+
+	
+}
 @media screen and (min-width: 330px) and (max-width: 360px){
 	.item_grid_home{
 		width: 31.2%;
@@ -816,6 +843,7 @@
 	.item_grid_home.width_g_home_1{
 		width: 65.8%;
 	}
+	
 }
 @media screen and (min-width: 768px) and (max-width: 1023px){
 	.container-company .container-img-company .img-black {
@@ -1067,6 +1095,20 @@
 	.container-polices-terms{
 		margin-top: 110px;
 	}
+
+	.search-container .search-modal-input{
+		top: 0;
+		right: 0px;
+		width: 35px;
+		height: 35px;
+		overflow: initial;
+	}
+
+	#menu-header-desktop{
+		margin-right: 0;
+		width: auto;
+	}
+
 }
 
 ul#menu-header-mobile{
@@ -1083,7 +1125,7 @@ ul#menu-header-mobile li{
 ul#menu-header-mobile li a{
 	text-decoration: none;
 	color:#fff;
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 	font-family: Helvetica;
 }
 
