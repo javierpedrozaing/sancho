@@ -123,8 +123,7 @@ input::-ms-clear {
 }
 .menu-menu-header-container{
     display: inline-block;
-    vertical-align: top;
-    width: 70%;
+    vertical-align: top;    
     float: right;
 }
 .menu-menu-header-container .menu{
@@ -214,11 +213,11 @@ input::-ms-clear {
     width:8%;
 }
 .search-container .search-modal-input{
-    position: absolute;
+    position: relative;
     width: 0%;
     min-width: 60px;
     height: 60px;
-    right: 16rem;    
+    right: 0;    
     overflow: hidden;
     -webkit-transition: width 0.3s;
     -moz-transition: width 0.3s;
@@ -1070,7 +1069,7 @@ input::-ms-clear {
     transform: translateY(80%);
     -webkit-transform: translateY(80%);
     -ms-transform: translateY(80%);
-    width: 71%;
+    width: 80%;
 }
 .no-result-search{
     margin-top: 55px;
@@ -1566,7 +1565,7 @@ input::-ms-clear {
 
 .lideres img{
     width: 208px;
-    height: 190px;
+    height: 100%;
 }
 
 .lideres .content-hover{
@@ -1932,6 +1931,11 @@ background-color: #c33625;
 .content-area.the-work{
     margin-top: 30px;
 }
+
+.content-area.the-work .gridhome{
+    left: 22px;
+}
+
 
 .content-area.the-work .filter{    
     height: 77px;

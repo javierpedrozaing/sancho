@@ -6,15 +6,26 @@
 
      // abrir barra de busqueda click en lupa
     $('.button-search').on('click', function(event){
+      $(this).css('position', 'absolute');
       $('.input-search').focus();
         if($('.input-search').val().length == 0 ) {
             $('.search-container .search-modal-input').toggleClass('open');
-            if($('.search-container .search-modal-input').hasClass('open')){            
-              $('.container-language').css('right', '27%');
-            }else{
-              $('.container-language').css('right', '4.7%'); 
-            } 
-            event.preventDefault();
+            
+            if (window.matchMedia('(max-width: 767px)').matches) {
+              event.preventDefault();
+            } else {
+              if($('.search-container .search-modal-input').hasClass('open')){            
+                $('form#searchform').css('right', '50px');
+                $('form#searchform').css('position', 'absolute');
+                $('form#searchform').css('width', '300px');              
+              }else{
+                $('form#searchform').css('right', 'none');
+                $('form#searchform').css('position', 'absolute');
+                $('form#searchform').css('width', '0'); 
+              } 
+            }
+            
+            
         }
     });
 
@@ -55,7 +66,7 @@
     });
 
     $(document).on("click", ".modal-content .close", function(){      
-      $(".search-modal-input").css('right', '256px');
+     
       $('.container-about .modal-leaders').css('position', 'relative');
       
        
@@ -74,7 +85,7 @@
       $(".modal-leaders .modal-body .name-leader").text(name_leader);
       $(".modal-leaders .modal-body .position-leader").text(position_leader);
       $(".modal-leaders .modal-body .description-leader").text(description_leader);
-      $(".search-container .search-modal-input").css('right', '273px');
+      
 
     });
 
@@ -95,8 +106,8 @@
     });
 
     // Manage toogle collapsed link oportunities    
-    $('.oportunities .container-opotunity').first().find('a').removeClass( "collapsed" );
-    $('.oportunities .container-opotunity').first().find('a').next('div').addClass('show');
+    //  $('.oportunities .container-opotunity').first().find('a').removeClass( "collapsed" );     
+    // $('.oportunities .container-opotunity').first().find('div.collapse').addClass('show');
   
     
     $('.oportunities .container-opotunity a').each(function(){
@@ -105,7 +116,7 @@
       if ($(this).hasClass('collapsed')) {
         $(this).text('Ver más');
         $(this).next('span').addClass('fa-chevron-right');
-      }else{
+      } else if($(this).next('div').hasClass('show')){
         $(this).text('Ver menos');        
         $(this).next('span').addClass('fa-chevron-up');
       }
@@ -118,9 +129,8 @@
       if ($(this).hasClass('collapsed')) {
         $(this).text('Ver menos');              
         $(this).next('span').addClass('fa-chevron-up');
-      }else{
-        $(this).text('Ver más');
-        
+      } else {
+        $(this).text('Ver más');        
         $(this).next('span').addClass('fa-chevron-right');
       }
 
@@ -370,9 +380,10 @@
       infinite: true,
       speed: 300,
       slidesToShow: 1,
-      adaptiveHeight: true,
+      adaptiveHeight: false,
       autoplay: true,
-      arrows: true
+      arrows: true,
+      fade: true,
     });
   ///////////////// SLIDE LIBRARY ////////////////
   
