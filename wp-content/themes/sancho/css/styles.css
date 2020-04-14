@@ -1843,6 +1843,9 @@ background-color: #c33625;
 .grid-item--square { height: 200px;  width: 16%; }
 .grid-item--squarex2 { height: 405px; width: 32%;}
 
+.container-article .gridhome .grid-item--square { height: 200px;  width: 20%; }
+.container-article .gridhome .grid-item--rectangular{ width: 40%; height: 200px; }
+
 .gridhome .grid-item.active_hover_grid img.thumbnail-grid{    
     opacity: 0.23;
     cursor: pointer;

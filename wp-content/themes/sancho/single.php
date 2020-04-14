@@ -122,7 +122,8 @@ get_header(); ?>
 								'post_status' => 'publish',								
 								'tag' => $tags_related,
 								'post__not_in' => array(get_the_ID() ),
-								'posts_per_page' => 20,								
+								'posts_per_page' => 6,
+								'limit' => 6,															
 								'orderby' => array( 'date' => 'ASC'),						
 							);
 						}
