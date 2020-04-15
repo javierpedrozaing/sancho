@@ -34,10 +34,13 @@ global $data;
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=11">
 	<meta name="format-detection" content="telephone=no"/>
-
+	<script type="text/javascript">
+	var siteUrl = '<?= get_site_url() ?>';
+	</script>
 	<?php wp_head(); ?>
 	<link rel='stylesheet' id='sancho-css'  href='<?php echo $tDir; ?>/css/styles.css' type='text/css' media='all' />
 	<link rel='stylesheet' id='sancho-css'  href='<?php echo $tDir; ?>/css/styles_responsive.css' type='text/css' media='all' />
+	<link rel='stylesheet' id='sancho-css'  href='<?php echo $tDir; ?>/css/jquery-ui.css' type='text/css' media='all' />
 	<link rel='stylesheet' id='sancho-css'  href='<?php echo $tDir; ?>/slick/slick.css' type='text/css' media='all' />
 	<link rel='stylesheet' id='sancho-css'  href='<?php echo $tDir; ?>/slick/slick-theme.css' type='text/css' media='all' />
 	

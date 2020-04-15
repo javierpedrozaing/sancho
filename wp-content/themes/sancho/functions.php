@@ -48,6 +48,7 @@ function my_jquery_enqueue() {
    	wp_enqueue_script( 'masonry-js',  get_template_directory_uri() . '/js/masonry.js', array( 'jquery' ), '', true );
    	// wp_enqueue_script( 'infinite-scroll-js', "https://unpkg.com/infinite-scroll@3.0.2/dist/infinite-scroll.pkgd.min.js", array( 'jquery' ), '', true );
 	wp_enqueue_script( 'images-load-js', "https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js", array( 'jquery' ), '', true );
+	wp_enqueue_script( 'autocomplete-jquery', get_template_directory_uri() . '/js/jquery-ui.min.js', array( 'jquery' ), '', true );
 	   
 	
 	
@@ -406,5 +407,23 @@ function loadMorePost(){
 	}
 }
 
+add_action('wp_ajax_autocomplete_search', 'autocomplete_search');
+add_action('wp_ajax_nopriv_autocomplete_search', 'autocomplete_search');
 
+function autocomplete_search(){
+	$term = $_POST['term'];			
+	$posts = new WP_Query( array( 'tag' => $term, 'post_status' => 'publish', 'limit' => 10 ) );	
+	
+	if ( $posts->have_posts() ) {
+	} ?>
+	<ul>
+	<?php while ( $posts->have_posts() ) {
+		$posts->the_post(); ?>
+		<li><a href="#"><?php echo get_the_title(get_the_ID()); ?></a></li>								
+	<?php } ?>
+	</ul>
+
+	<?php
+	wp_die();
+}
 ?>

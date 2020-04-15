@@ -141,11 +141,11 @@ input::-ms-clear {
     text-align: center;
     width: 100px;
 }
-.menu-menu-header-container li:hover,
+/* .menu-menu-header-container li:hover,
 .active_menu:hover{
     background-color: #c33625;
     height: 60px;
-}
+} */
 .menu-menu-header-container li.active_menu:hover a{
     color: #fff;
 }
@@ -209,8 +209,7 @@ input::-ms-clear {
 .search-container{
     display: inline-block;
     vertical-align: top;
-    float: right;
-    width:8%;
+    float: right;    
 }
 .search-container .search-modal-input{
     position: relative;
@@ -945,18 +944,21 @@ input::-ms-clear {
 
 .search-container .list-sugestion{
     position: absolute;
-    width: 27%;
-    right: 0px;
-    top: 60px;
+    width: 289px;
+    right: 316px;
+    top: 89px;
     z-index: 99;
     background-color: #8b8b8b;
     opacity: 0;
     display: none;
 }
 .search-container .list-sugestion li{
-    padding-bottom: 15px;
-    padding-top: 15px;
+    padding: 0;
     cursor: pointer;
+    width: 100%;
+    text-align: left;
+    left: 20px;
+    position: relative; 
 }
 .search-container .list-sugestion li.selected{
     background-color: #666;
@@ -966,10 +968,10 @@ input::-ms-clear {
 }
 .search-container .list-sugestion li a{
     text-decoration: none;
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: bold;
     font-family: "Helvetica";
-    color: #666666;
-    padding-left: 25px;
+    color: #484848;    
 }
 .search-container .list-sugestion li.hover-sugestion{
     background-color: #666;

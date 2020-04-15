@@ -13,18 +13,19 @@
 	 <section id="primary" class="content-area"> 
 		<?php
 			$tags = [];
-			$array_query = [];
-			if($_COOKIE['_querys']){
-				foreach ($_COOKIE['_querys'] as $value){
-				   // echo "<a href='{$value}'>{$value}</a>";
-				     array_push($tags, $value);
-				} 
-			}
-			$get_tags = implode($tags, "+");
-			
-			$query = new WP_Query( array( 'tag' => $get_tags ) );			
+			$titles_post = [];
+			$term =  $_GET['s'];
+			$tag =  $_GET['tag'];
+			$posts_term = new WP_Query( array( 's' => $term, 'post_status' => 'publish' ) );			
 			//$query = $_POST['query'];
-			array_push($array_query, $query);
+
+			while ( $posts_term->have_posts() ) {
+				$posts_term->the_post();
+				array_push($titles_post, get_the_title(get_the_ID()) );
+			}			
+			wp_reset_postdata();
+			$posts = new WP_Query( array( 's' => $term, 'post_status' => 'publish' ) );			
+		
 		 	//print_r($data);
 		 ?>
 		<main id="main" class="site-main" role="main">
@@ -33,10 +34,11 @@
 					<!-- <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'sancho' ), get_search_query() ); ?></h1> -->
 					<h1>Resultado de busqueda:</h1>
 					<div class="letter-search">
-						<?php if ($get_tags): ?>
-							<?php foreach ($tags as $key => $value): ?>
-								<p><?php echo $value; ?></p>
-							<?php endforeach ?>
+						<?php if ($titles_post): ?>
+						<?php foreach ($titles_post as $key => $value) {							
+							$posts->the_post(); ?>
+							 <p><?php echo  $value; ?></p>
+						<?php } ?>
 						<?php endif ?>
 				
 					</div>
@@ -44,61 +46,39 @@
 						<p>limpiar busqueda</p>
 					</div>
 				</header>
-		<?php if ( $get_tags and $query->have_posts() ) : ?>
-			
-			<ul>			
-			<?php while ( $query->have_posts() ) : $query->the_post() ?>				
-				<?php 
-					$thumbID = get_post_thumbnail_id( get_the_ID() ); 
-					$image_related = get_field('image_related_article'); 
-
-					if (get_field('check_external_link', get_the_ID())){
-						$link_external = get_field('external_link', get_the_ID());
-					}else{
-						$link = get_permalink(get_the_ID());
-					}
-
-					$link_post = get_field('check_external_link', get_the_ID()) ? $link_external : $link; 
-
-			?>	
-				<?php if ( get_field("type", get_the_ID()) == "news" ): ?>
-				<li style="height:105px;">
-					<a href="<?php echo $link_post ?>" target="_blank">
-					<div class="item_notice_plugin">
-					<h1 class="notice-title"><?php echo get_the_title(get_the_ID()) ?></h1>
-					<?php echo get_field("cuerpo_noticia",get_the_ID()) ?>
-					</div>
-					</a>
-				</li>
-
-				<?php else: ?>
-				<?php
-				/*
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				// get_template_part( 'content', 'search' );
-
-				
-				?>
-				
-					<li>
-						<a href="<?php echo $link_post ?>" target='<?php echo $link_external ? '_blank' : '_self' ?>' rel="bookmark" title="">
-							<?php echo wp_get_attachment_image($image_related, full); ?>	
-							<p><?php echo get_field("origen") ?></p>
-							<h1><?php echo get_the_title(); ?></h1>
-						</a>
-					</li>
-				
-
-			<?php
-				endif;
-				// End the loop.
-				endwhile; 				
-				wp_reset_query(); ?>
-			</ul>	
-		
+		<?php if ( $posts and $posts->have_posts() ) : ?>			
+				<div class="gridhome">
+				<div class="grid-sizer"></div>
+				<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>					
+					<?php
+					 $size_grid = get_field( 'size_grid' ); 
+					$external_link = get_field( 'check_external_link' );
+					$the_external_link = get_field( 'external_link' );
+					$permalink =  ($external_link) ? $the_external_link : get_post_permalink(get_the_ID());
+					?>
+					<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID()); ?>											
+					<a href="<?php echo $permalink?>" target="_blank">
+						<div class="grid-item grid-item--<?php echo explode(':', $size_grid)[0]; ?>" ><img class="thumbnail-grid" src="<?php  echo $featured_img_url; ?>" alt="">
+							<div class="hover-content">
+								<p class="taq-post"><?php  echo the_category() ?> </p>
+								<p class="title-post"> <?php  echo the_title() ?>  </p>
+								<p class="date-post"><?php echo get_the_date() ?></p>
+								<p class="link-post">
+									<?php 
+									if ($external_link) { ?>									
+										<a href="<?php echo $permalink; ?>"  target="_blank"><img src="<?php echo get_template_directory_uri() ?>/images/foreign.svg" alt=""></a>
+									<?php }else{ ?>
+										
+										<a href='<?php echo $permalink; ?> ' target="_blank">Leer más</a>
+									<?php } 
+									?>
+								</p>
+							</div>
+						</div>  
+					</a>									
+					
+				<?php endwhile; ?>
+			</div>
 		<?php else : ?>
 			<div class="no-result-search"> 
 				<p>No se encontraron resultados. Ingresa otro término de búsqueda.</p>

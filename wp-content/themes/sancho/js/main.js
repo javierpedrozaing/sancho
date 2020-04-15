@@ -1,14 +1,52 @@
 ( function( $ ) {   
   $(document).ready(function(){
-       
+    
+    // autocomplete search
+    $(".menu-menu-header-container #input-search").autocomplete({              
+      source: function( request, response ) {
+        $(".list-sugestion").html("");
+        let data = {
+          'action': 'autocomplete_search',  
+          'dataType': "jsonp",    
+          'term': request.term          
+        };   
+    
+        
+      $.ajax({
+        url : themeSancho._ajax_url,
+        data:data,
+        type:'POST',
+        beforeSend: function( xhr ) {
+          // you can also add your own preloader here
+          // you see, the AJAX call is in process, we shouldn't run it again until complete          
+        },
+        success:function(res) {
+          console.log(res);          
+          //response( res );
+          $(".list-sugestion").append(res);
+        },
+        complete:function() {
+          $(".list-sugestion ul li").on("click", function(e){
+            e.preventDefault();
+            let tag = request.term;
+            window.location.replace(siteUrl + "/?s="+$(this).text());
+
+          });
+        }
+      });
+      },
+      minLength: 2,        
+    } );
+
+
      /////////////////////////// START DESKTOP //////////////////////////////////////
      $('.menu-item-11').css('display', 'none'); // hide home
 
      // abrir barra de busqueda click en lupa
     $('.button-search').on('click', function(event){
       $(this).css('position', 'absolute');
-      $('.input-search').focus();
-        if($('.input-search').val().length == 0 ) {
+      $('.input-search').focus();      
+        if($('.input-search').val().length == 0 ) {          
             $('.search-container .search-modal-input').toggleClass('open');
             
             if (window.matchMedia('(max-width: 767px)').matches) {
@@ -27,6 +65,10 @@
             
             
         }
+    });
+
+    $('.searchform').on('submit', function(){
+
     });
 
     // animacion compartir y ancla
@@ -236,20 +278,20 @@
     
 
      // lista de sugerencias buscador general
-    // $('.input-search').keydown(function(e) {
-    //   $(".list-sugestion").css("opacity", "1");
-    //   $(".list-sugestion").css("display", "block");
-    // });
-    // // ocultar lista de sugerencias
-    // $('.input-search').keyup(function(e){
-    //     if( $(this).val() == '' ) {
-    //       $(".list-sugestion").css("opacity", "0");
-    //       $(".list-sugestion").css("display", "none");
-    //     }
-    //     if(e.which == 40){
-    //       // console.log('abajo');
-    //     }
-    // });
+    $('.input-search').keydown(function(e) {
+      $(".list-sugestion").css("opacity", "1");
+      $(".list-sugestion").css("display", "block");
+    });
+    // ocultar lista de sugerencias
+    $('.input-search').keyup(function(e){
+        if( $(this).val() == '' ) {
+          $(".list-sugestion").css("opacity", "0");
+          $(".list-sugestion").css("display", "none");
+        }
+        if(e.which == 40){
+          // console.log('abajo');
+        }
+    });
 
     var li = $('.search-container .list-sugestion li');
     var liSelected;

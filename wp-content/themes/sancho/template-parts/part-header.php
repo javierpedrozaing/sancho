@@ -48,7 +48,7 @@
 					);
 				?>	
 				<?php 
-				$args = array( 'post_type' => 'redessociales', 'posts_per_page' => 5 );
+				$args = array( 'post_type' => 'redessociales', 'posts_per_page' => 5, 'post_status' => 'publish' );
 				$social_media = new WP_Query( $args ); 				
 				?>				
 				
@@ -74,18 +74,19 @@
 					<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) )  ?>" onsubmit="">
 						<input id="input-search" class="input-search" type="text" value="<?php get_search_query() ?>" name="s" id="s" placeholder="<?php if(ICL_LANGUAGE_CODE == "en"){ ?>Search <?php }else {?>Buscar <?php }?>" autocomplete="off"/>
 					</form>
-
-						<button class="button-search" type="submit" id="searchsubmit"><i class="search-icon"></i></button>
+					<button class="button-search" type="submit" id="searchsubmit"><i class="search-icon"></i></button>
 				</div>
-				<?php
-					$tags_array = get_tags( $args );
-				?>
+				<?php 
+					$argsPosts = array( 'post_type' => 'post', 'limit' => 5 );
+					$posts = new WP_Query( $argsPosts ); 				
+				?>		
+			
 				<ul class="list-sugestion" id="list-sugestion">
-					<?php foreach ($tags_array as $key => $value): ?>
-						<?php if ($key < 3): ?>
-							<li><a href="#"><?php echo $value->name ?></a></li>
-						<?php endif ?>	    			
-					<?php endforeach ?>
+				<?php if ( $posts->have_posts() ) : ?>
+					<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>										
+						<li><a href="#"><?php echo get_the_title(get_the_ID()); ?></a></li>						
+					<?php endwhile; ?>
+				<?php endif ?>
 				</ul>	
 			</div>
 		</div>
