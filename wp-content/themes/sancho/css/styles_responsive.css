@@ -206,10 +206,7 @@
 	.container-text-about .second-parraph h2{
 		font-size: 24px;
 	}
-	.container-text-about .third-parraph h3{
-		font-size: 25px;
-		margin-bottom: 50px;
-	}
+
 	.container-text-about .third-parraph p {
 	    margin-bottom: 40px;
 	    font-size: 13px;
@@ -778,7 +775,7 @@
 	}
 
 	.contact-desk .first-section{
-		margin:20px;
+		margin: 0 30px;
 	}
 	.contact-desk .form-contact h3{
 		display: none;
@@ -836,6 +833,14 @@
 		height: 102px;
 	}
 
+	.container-share .img-share img{
+		height: auto;
+		margin: 8px;
+	}
+
+	.container-share{
+		right: 0;
+	}
 	.content-slide .slide-block h4{
 		top: 110px;
 		margin: 20px;
@@ -861,6 +866,10 @@
 
 	.button-search{
 		display: none;
+	}
+
+	.aliados-container{
+		padding: 0;
 	}
 }
 @media screen and (min-width: 330px) and (max-width: 360px){
@@ -1080,8 +1089,7 @@
 		margin-bottom: 30px;
 	}
 	.container-text-about .third-parraph h3{
-		font-size: 38px;
-		margin-bottom: 45px;
+		font-size: 24px;		
 	}
 	.container-text-about .third-parraph p{
 		margin-bottom: 40px;
@@ -1140,7 +1148,14 @@
 		left: calc(73vw - 97px);
 	}
 	
+	.container-share .img-share img{
+		height: auto;
+		margin: 8px;
+	}
 
+	.contact-desk .first-section{
+		margin: 0 35px;
+	}
 }
 
 ul#menu-header-mobile{

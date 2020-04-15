@@ -90,6 +90,7 @@ get_header(); ?>
 					
 					<?php echo do_shortcode("[social_share_button]"); ?>
 					<div class="img-share">
+					<img src="<?php echo get_template_directory_uri()?>/images/newshare.svg" alt="">
 					</div>
 				</div>
 		</div>		

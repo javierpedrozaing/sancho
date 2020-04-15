@@ -72,7 +72,8 @@
     });
 
     // animacion compartir y ancla
-    var scrollPos = 0;
+    var scrollPos = 10;
+    $('.container-share').css('opacity','1');
     $(window).scroll(function () {
         var currentPos = $(this).scrollTop();
         if (currentPos <= 10) {

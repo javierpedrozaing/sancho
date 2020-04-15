@@ -9,6 +9,7 @@ global $wp_query;
 ?>
     <div class="oportunities">
         <h3>Trabaja con Nosotros</h3>
+        <hr>
             <?php 
                 $args = array( 'post_type' => 'vacantes', 'posts_per_page' => 50,  'orderby' => array( 'date' => 'DESC') );
                 $the_query = new WP_Query( $args );		
@@ -38,6 +39,15 @@ global $wp_query;
                     <hr>
                     <?php endwhile; ?>
                 <?php endif; ?>	
+
+                	<div class="container-share">
+					<div class="images-share">						
+						<?php echo do_shortcode("[social_share_button]"); ?>
+						<div class="img-share">
+                        <img src="<?php echo get_template_directory_uri()?>/images/newshare.svg" alt="">
+						</div>
+					</div>
+				</div>
     </div>
 
 

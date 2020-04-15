@@ -28,7 +28,7 @@
 				</div>							
 				</div>						
 			</div>
-			<?php while ( have_posts() ) : the_post(); ?>					
+								
 				<?php if (get_field('imagen_o_video') == "imagen") : ?>
 					<div class="about-img">
 						<img class="img-desktop-about" src="<?php echo the_field('imagen_escritorio'); ?>">
@@ -55,7 +55,7 @@
 				</div>
 		
 
-			<?php endwhile; ?>
+			
 			</div>
 
 			<!-- Large modal Desktop -->						
@@ -160,6 +160,7 @@
 					<div class="images-share">						
 						<?php echo do_shortcode("[social_share_button]"); ?>
 						<div class="img-share">
+						<img src="<?php echo get_template_directory_uri()?>/images/newshare.svg" alt="">
 						</div>
 					</div>
 				</div>
