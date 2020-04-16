@@ -9,8 +9,7 @@
           'action': 'autocomplete_search',  
           'dataType': "jsonp",    
           'term': request.term          
-        };   
-    
+        };       
         
       $.ajax({
         url : themeSancho._ajax_url,
@@ -22,7 +21,7 @@
         },
         success:function(res) {
           console.log(res);          
-          //response( res );
+        // response( res );
           $(".list-sugestion").append(res);
         },
         complete:function() {
@@ -38,6 +37,21 @@
       minLength: 2,        
     } );
 
+    $('.clean-search').on('click', function(){
+      $('.letter-search p').remove();
+      $(".container-result-search .gridhome").html("<div class='no-result-search'> <p>No se encontraron resultados. Ingresa otro término de búsqueda.</p></div>");    
+    });
+
+    $('.letter-search p').on('click', function(){
+      $(this).remove();  
+      if ($('.letter-search p').length == 1) {
+        window.location.replace(siteUrl + "/?s="+$('.letter-search p').text());     
+      } else  if ($('.letter-search p').length == 0){
+        $(".container-result-search .gridhome").html("<div class='no-result-search'> <p>No se encontraron resultados. Ingresa otro término de búsqueda.</p></div>");    
+      }
+
+    
+  });
 
      /////////////////////////// START DESKTOP //////////////////////////////////////
      $('.menu-item-11').css('display', 'none'); // hide home
@@ -67,7 +81,12 @@
         }
     });
 
-    $('.searchform').on('submit', function(){
+    $('.searchform').on('submit', function(e) {      
+      if ($('.menu-menu-header-container .input-search').val().length > 0) {
+          $(this).submit();
+      }else{
+        e.preventDefault();
+      }
 
     });
 

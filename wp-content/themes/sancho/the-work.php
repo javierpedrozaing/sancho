@@ -12,6 +12,7 @@ global $tDir;
 	</div>
 
 	<?php 
+		
 		$args = array(
 			'post_type' => 'post',
 			'post_status' => 'publish',
@@ -22,11 +23,15 @@ global $tDir;
 		$blog_posts = new WP_Query( $args );
 	?>
 
-	<?php if ( $blog_posts->have_posts() ) : ?>
+	<?php if ( $blog_posts->have_posts() ) : 
+	
+		?>
 			<div class="gridhome">
 				<div class="grid-sizer"></div>
 				<?php while ( $blog_posts->have_posts() ) : $blog_posts->the_post(); ?>					
 					<?php
+					// $meta_data = get_the_category(get_the_ID());
+					// var_dump($meta_data);exit();	
 					 $size_grid = get_field( 'size_grid' ); 
 					$external_link = get_field( 'check_external_link' );
 					$the_external_link = get_field( 'external_link' );

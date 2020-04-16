@@ -16,7 +16,8 @@
 			$titles_post = [];
 			$term =  $_GET['s'];
 			$tag =  $_GET['tag'];
-			$posts_term = new WP_Query( array( 's' => $term, 'post_status' => 'publish' ) );			
+		
+			$posts_term = new WP_Query( array( 's' => $term, 'post_status' => 'publish','post_type' => 'post' ) );			
 			//$query = $_POST['query'];
 
 			while ( $posts_term->have_posts() ) {
@@ -24,7 +25,7 @@
 				array_push($titles_post, get_the_title(get_the_ID()) );
 			}			
 			wp_reset_postdata();
-			$posts = new WP_Query( array( 's' => $term, 'post_status' => 'publish' ) );			
+			$posts = new WP_Query( array( 's' => $term, 'post_status' => 'publish', 'post_type' => 'post',   ) );			
 		
 		 	//print_r($data);
 		 ?>
@@ -36,7 +37,7 @@
 					<div class="letter-search">
 						<?php if ($titles_post): ?>
 						<?php foreach ($titles_post as $key => $value) {							
-							$posts->the_post(); ?>
+							?>
 							 <p><?php echo  $value; ?></p>
 						<?php } ?>
 						<?php endif ?>

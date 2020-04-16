@@ -411,15 +411,27 @@ add_action('wp_ajax_autocomplete_search', 'autocomplete_search');
 add_action('wp_ajax_nopriv_autocomplete_search', 'autocomplete_search');
 
 function autocomplete_search(){
-	$term = $_POST['term'];			
-	$posts = new WP_Query( array( 'tag' => $term, 'post_status' => 'publish', 'limit' => 10 ) );	
+	$term = $_POST['term'];	
+	echo $term;
+	// $args = array(
+	// 	'post_status' => 'publish',
+	// 	'post_type' => 'post',        		
+	// 	'tag' => $term
+
+	// ); 		
+	// $posts = new WP_Query($args);	
+
+	$posts = new WP_Query( array( 's' => $term, 'post_status' => 'publish','post_type' => 'post' ) );			
 	
 	if ( $posts->have_posts() ) {
 	} ?>
 	<ul>
 	<?php while ( $posts->have_posts() ) {
-		$posts->the_post(); ?>
-		<li><a href="#"><?php echo get_the_title(get_the_ID()); ?></a></li>								
+		$posts->the_post();
+		
+		
+			?>
+		<li><a href="#"><?php echo get_the_title(get_the_ID()); ?></a></li>										
 	<?php } ?>
 	</ul>
 

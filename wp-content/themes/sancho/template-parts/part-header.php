@@ -71,7 +71,7 @@
 
 			<div class="search-container">
 				<div class="search-modal-input">
-					<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) )  ?>" onsubmit="">
+					<form role="search" method="get" id="searchform" class="searchform" >
 						<input id="input-search" class="input-search" type="text" value="<?php get_search_query() ?>" name="s" id="s" placeholder="<?php if(ICL_LANGUAGE_CODE == "en"){ ?>Search <?php }else {?>Buscar <?php }?>" autocomplete="off"/>
 					</form>
 					<button class="button-search" type="submit" id="searchsubmit"><i class="search-icon"></i></button>
