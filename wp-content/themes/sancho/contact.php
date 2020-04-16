@@ -51,12 +51,9 @@ global $wp_query;
 									<span class="img-black" style="background: url('<?php echo $value['imagen_gris']['url'];?>') center no-repeat;"></span>
 									<span class="img-color" style="background: url('<?php echo $value['imagen_color']['url'];?>') center no-repeat;"></span>
 								</div>
-							<?php endif; ?>
-						
-						</div>
-						
-				<?php endforeach ?>	
-				
+							<?php endif; ?>						
+						</div>						
+				<?php endforeach ?>					
     </div>
 </div>
 
