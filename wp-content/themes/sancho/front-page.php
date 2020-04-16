@@ -45,13 +45,16 @@
 
 					   if( !empty( $imageSlide ) ): ?>
 					   	<div class="content-slide">							
-							<a href="<?php echo esc_url( $linkSlide ); ?> " target="_blank" class="slide-block">
+							<div class="slide-block">
 								<img class="mobile" src="<?php echo esc_url($imageSlideMobile['url']); ?>" alt="" />
 								<img class="desktop" src="<?php echo esc_url($imageSlide['url']); ?>" alt="" />
-								<h4><?php  echo $titleSlide; ?> </h4>
-								<p class="text-slide"><?php echo $contentSlide; ?></p>
-							</a>							
-							<a href="<?php echo esc_url( $linkSlide ); ?> " target="_blank" class="link-slide">Ver Más</a>
+								<div class="content-text">
+									<h4><?php  echo $titleSlide; ?> </h4>
+									<p class="text-slide"><?php echo $contentSlide; ?></p>
+									<a href="<?php echo esc_url( $linkSlide ); ?> " target="_blank" class="link-slide">Ver Más</a>
+								</div>
+							</div>		
+							
 						</div>						
 
 			   			<?php endif; 

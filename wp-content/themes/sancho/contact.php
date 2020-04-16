@@ -12,7 +12,7 @@ global $wp_query;
 ?>
 <div class="contact-desk">
     <div class="row">
-        <div class="first-section col-xs-1 col-md-3 offset-md-1 order-last order-md-1">
+        <div class="first-section col-xs-1 col-md-3 .col-lg-3 offset-md-1 order-last order-xs-2 order-md-1 order-lg-1">
             <div class="contact-info">
                 <p><?php echo $direccion; ?></p>
                 <p><?php echo $telefono ?></p>
@@ -25,7 +25,7 @@ global $wp_query;
             </div>
         </div>
 
-        <div class="col-xs-1 col-md-8 order-first order-md-2">
+        <div class="col-xs-1 col-md-8 .col-lg-8 order-first order-xs-1 order-md-2 order-lg-2">
             <div class="location-contact">
                 <img src="<?php echo get_template_directory_uri() ?>/images/location.PNG" alt="">
             </div>

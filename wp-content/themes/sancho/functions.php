@@ -411,8 +411,7 @@ add_action('wp_ajax_autocomplete_search', 'autocomplete_search');
 add_action('wp_ajax_nopriv_autocomplete_search', 'autocomplete_search');
 
 function autocomplete_search(){
-	$term = $_POST['term'];	
-	echo $term;
+	$term = $_POST['term'];		
 	// $args = array(
 	// 	'post_status' => 'publish',
 	// 	'post_type' => 'post',        		

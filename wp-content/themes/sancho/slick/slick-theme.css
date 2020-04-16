@@ -198,7 +198,7 @@
 
 @media screen and (max-width: 768px) {
     .slick-dots{
-        right: 13.5rem;        
+        right: 2.5rem;     
     }
 
     .slick-prev{
@@ -221,7 +221,5 @@
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1440px){
-    .slick-prev{
-        left: calc(96vw - 85px);
-    }
+  
 }

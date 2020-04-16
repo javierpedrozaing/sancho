@@ -82,27 +82,28 @@
 				?>		
 			
 				<ul class="list-sugestion" id="list-sugestion">
-				<?php if ( $posts->have_posts() ) : ?>
-					<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>										
-						<li><a href="#"><?php echo get_the_title(get_the_ID()); ?></a></li>						
-					<?php endwhile; ?>
-				<?php endif ?>
+				
 				</ul>	
 			</div>
 		</div>
-	
-		
+			
 	</div>
 
 	<div class="collapse" id="collapseMenu">
 				<ul id="menu-header-mobile" class="menu">
-					<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) )  ?>" onsubmit="">
+					<form role="search" method="get" id="searchform" class="searchform">
 							<input id="input-search" class="input-search" type="text" value="<?php get_search_query() ?>" name="s" id="s" placeholder="<?php if(ICL_LANGUAGE_CODE == "en"){ ?>Search <?php }else {?>Buscar <?php }?>" autocomplete="off"/>							
 							<div class="search-container">
 								<span class="button-search"></span>
-							</div>
-							 
+							</div>							 
 					</form>
+					<ul class="list-sugestion" id="list-sugestion">
+					<?php if ( $posts->have_posts() ) : ?>
+						<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>										
+							<li><a href="#"><?php echo get_the_title(get_the_ID()); ?></a></li>						
+						<?php endwhile; ?>
+					<?php endif ?>
+					</ul>	
 					<?php 
 						wp_nav_menu(
 							array(

@@ -2,7 +2,7 @@
   $(document).ready(function(){
     
     // autocomplete search
-    $(".menu-menu-header-container #input-search").autocomplete({              
+    $(".input-search").autocomplete({              
       source: function( request, response ) {
         $(".list-sugestion").html("");
         let data = {
@@ -21,7 +21,7 @@
         },
         success:function(res) {
           console.log(res);          
-        // response( res );
+        // response( res );        
           $(".list-sugestion").append(res);
         },
         complete:function() {
@@ -31,6 +31,7 @@
             window.location.replace(siteUrl + "/?s="+$(this).text());
 
           });
+      
         }
       });
       },
@@ -57,14 +58,14 @@
      $('.menu-item-11').css('display', 'none'); // hide home
 
      // abrir barra de busqueda click en lupa
-    $('.button-search').on('click', function(event){
+    $('.menu-menu-header-container .button-search').on('click', function(event){      
+      
       $(this).css('position', 'absolute');
       $('.input-search').focus();      
-        if($('.input-search').val().length == 0 ) {          
-            $('.search-container .search-modal-input').toggleClass('open');
-            
+        if($('.menu-menu-header-container .input-search').val().length == 0 ) {          
+            $('.search-container .search-modal-input').toggleClass('open');            
             if (window.matchMedia('(max-width: 767px)').matches) {
-              event.preventDefault();
+              
             } else {
               if($('.search-container .search-modal-input').hasClass('open')){            
                 $('form#searchform').css('right', '50px');
@@ -78,17 +79,19 @@
             }
             
             
+        }else{          
+          $('.menu-menu-header-container form').submit();
         }
     });
 
-    $('.searchform').on('submit', function(e) {      
-      if ($('.menu-menu-header-container .input-search').val().length > 0) {
-          $(this).submit();
-      }else{
-        e.preventDefault();
-      }
-
+    $('#menu-header-mobile .button-search').on('click', function(event){ 
+      console.log("val input => ", $('#menu-header-mobile  form .input-search').val().length);            
+        if($('#menu-header-mobile  form .input-search').val().length > 0 ) {                         
+          $("#menu-header-mobile form").submit();
+        }
     });
+
+   
 
     // animacion compartir y ancla
     var scrollPos = 10;
@@ -315,7 +318,7 @@
         }
     });
 
-    var li = $('.search-container .list-sugestion li');
+    var li = $('.list-sugestion li');
     var liSelected;
     $(window).keydown(function(e){
         if(e.which === 40){
