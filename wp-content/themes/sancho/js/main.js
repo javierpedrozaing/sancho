@@ -276,7 +276,7 @@
         $(this).find('.img-black').css('display', 'block');
         $(this).find('.img-color').css('display', 'none');
       }
-    );
+      );
 
         
   

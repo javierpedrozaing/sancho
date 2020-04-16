@@ -38,8 +38,7 @@ global $wp_query;
 			<div id="galery_company" class="container-company">
 				<?php $aliados = get_field('aliados', $wp_query->post->ID); ?>
 				<?php foreach ($aliados as $key => $value): ?>											
-						<div class="two-company">
-						
+						<div class="two-company">						
 							<?php if ($value['url_aliado'] != "") : ?>
 								<a href="<?php echo $value['url_aliado']; ?>" target="_blank">
 									<div class="container-img-company">
