@@ -104,8 +104,11 @@
 															<p class="position-leader"><?php  echo $position ?></p>
 															<a href="#" class="readMore">Ver más  </a> <span  class="readMore"> > </span>
 														</div>		
+														<div class="hover-card movil"></div>	
 														<div class="content-hover-mobil modal-leaders-mobil" data-toggle="modal" data-target=".modal-leaders-mobil" data-name="<?php the_title(); ?>" data-photo="<?php echo $photoLeader; ?>" data-photo-modal="<?php echo $photoLeaderModal; ?>" data-position="<?php echo  $position?>" data-description="<?php echo wp_strip_all_tags($description) ?>">
-															
+															<p class="name-leader"><?php echo the_title(); ?></p>
+															<p class="position-leader"><?php  echo $position ?></p>
+															<a href="#" class="readMore">Ver más  </a> <span  class="readMore"> > </span>
 														</div>										
 												</div>										
 										</div>	

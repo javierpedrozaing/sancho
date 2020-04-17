@@ -110,6 +110,8 @@
       $('.wp-share-button.theme32').toggleClass('active-share');
     });
 
+
+
     $(".container-about .lideres .content-hover").hover(function(){      
       $(this).prev('.hover-card').css('opacity', '0.47');
       $(this).css('cursor', 'pointer');
@@ -130,16 +132,13 @@
       e.preventDefault();
     });
 
-    $(document).on("click", ".modal-content .close", function(){      
-     
-      $('.container-about .modal-leaders').css('position', 'relative');
-      
-       
+    $(document).on("click", ".modal-content .close", function(){           
+      $('.container-about .modal-leaders').css('position', 'relative');             
     });
 
-    $(document).on("click", ".modal-leaders", function () {
-      $('.container-about .modal-leaders').css('position', 'absolute');
-      
+  
+    $(document).on("click", ".modal-leaders", function () {      
+      $('.container-about .modal-leaders').css('position', 'absolute');            
       $("html, body").animate({ scrollTop: 0 }, 600);
       console.log("modal leaders");
       let photo_leader = $(this).data('photo-modal');
@@ -149,14 +148,19 @@
       $(".modal-leaders .modal-body .photo-leader").attr('src', photo_leader);
       $(".modal-leaders .modal-body .name-leader").text(name_leader);
       $(".modal-leaders .modal-body .position-leader").text(position_leader);
-      $(".modal-leaders .modal-body .description-leader").text(description_leader);
-      
-
+      $(".modal-leaders .modal-body .description-leader").text(description_leader);      
     });
 
-    $(document).on("click", ".modal-leaders-mobil", function () {
-      
-      
+
+    // backe modal leaders 
+    $(document).on("click", ".card .modal-leaders-mobil.modal-dialog", function () {  
+      $(".modal-leaders-mobil").prev('.hover-card').css('opacity', '0.47');
+      $(".modal-leaders-mobil").css('opacity', '1');
+      $(".modal-leaders-mobil").css('cursor', 'pointer');
+      $(".modal-leaders-mobil").prev('.hover-card').show();  
+    });
+    // hover click mobile
+    $(document).on("click", ".modal-leaders-mobil", function () {            
       $("html, body").animate({ scrollTop: 0 }, 600);
       console.log("modal leaders mobil");
       let photo_leader = $(this).data('photo-modal');
@@ -169,6 +173,15 @@
       $(".modal-leaders-mobil .modal-body .description-leader").text(description_leader);      
 
     });
+
+      // hover leaders mobile
+      $(document).on("touchstart", ".modal-leaders-mobil", function () {           
+        $(this).prev('.hover-card').css('opacity', '0.47');
+        $(this).css('opacity', '1');
+        $(this).css('cursor', 'pointer');
+        $(this).prev('.hover-card').show();      
+      });
+      
 
     // Manage toogle collapsed link oportunities    
     //  $('.oportunities .container-opotunity').first().find('a').removeClass( "collapsed" );     
@@ -451,6 +464,7 @@
       autoplay: true,
       arrows: true,
       fade: true,
+  
     });
   ///////////////// SLIDE LIBRARY ////////////////
   

@@ -129,11 +129,10 @@ input::-ms-clear {
 .menu-menu-header-container .menu{
     transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
-    
+    -webkit-transition: all 0.2s ease-in-out;    
     right: 20px;
     position: relative;
-    bottom: 1px;
+    bottom: 2px;
 }
 .menu-menu-header-container li{
     display: inline-block;
@@ -1606,16 +1605,22 @@ input::-ms-clear {
 
 
 .lideres img{
-    width: 208px;
-    height: 100%;
+   width: 208px;
+    height: 191px;
 }
 
 .lideres .content-hover{
     height: 210px;
     width: 100%;
     position: absolute;
-    opacity: 0;
-    
+    opacity: 0;    
+}
+
+.lideres .content-hover-mobil{
+    height: 105px;
+    width: 100%;
+    position: absolute;
+    opacity: 0;  
 }
 
 .lideres .hover-card{    
@@ -1631,8 +1636,13 @@ input::-ms-clear {
     background-color: #EF4024;
 }
 
+.lideres .hover-card.movil{
+    height: 135px;
+}  
 
-.lideres  .content-hover p, .lideres  .content-hover a{
+
+.lideres  .content-hover p, .lideres  .content-hover a,
+.lideres  .content-hover-mobil p, .lideres  .content-hover-mobil a{
     color: white;
     font-size: 20px;
     position: absolute;    
@@ -1643,7 +1653,8 @@ input::-ms-clear {
     text-align: left;
 }
 
-.lideres  .content-hover p, .lideres  .content-hover a, .lideres  .content-hover span{
+.lideres  .content-hover p, .lideres  .content-hover a, .lideres  .content-hover span,
+.lideres  .content-hover-mobil p, .lideres  .content-hover-mobil a, .lideres  .content-hover-mobil span{
     color: #fff;    
     font-family: Arial, Helvetica, sans-serif;    
     
@@ -1655,10 +1666,24 @@ input::-ms-clear {
     font-weight: bold;
 }
 
+.lideres  .content-hover-mobil .name-leader{
+    top:32px;
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .lideres  .content-hover .position-leader{
     position: relative;
-    top: 93px;
+    top: 54px;
     font-size: 14px;
+}
+
+.lideres  .content-hover-mobil .position-leader{
+    position: relative;
+    top: 35px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .lideres  .content-hover .readMore{
@@ -1668,7 +1693,14 @@ input::-ms-clear {
     font-size: 14px;
 }
 
-.lideres  .content-hover span.readMore{
+.lideres  .content-hover-mobil .readMore{
+        position: relative;
+    top: 29px;
+    left: 20%;
+    font-size: 14px;
+}
+
+.lideres  .content-hover span.readMore, .lideres  .content-hover-mobil span.readMore{
     margin-left: 10px;    
 }
 

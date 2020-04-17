@@ -79,8 +79,8 @@
 .slick-prev:before,
 .slick-next:before
 {
-    font-family: 'slick';
-    font-size: 20px;
+    font-family: 'FontAwesome';
+    font-size: 15px;
     line-height: 1;
 
     opacity: 1;
@@ -102,11 +102,13 @@
 }
 .slick-prev:before
 {
-    content: '←';
+    font-family: FontAwesome;
+    content: "\f053"; /* FontAwesome Unicode */
 }
 [dir='rtl'] .slick-prev:before
 {
-    content: '→';
+    font-family: FontAwesome;
+    content: "\f053"; /* FontAwesome Unicode */
 }
 
 .slick-next
@@ -120,11 +122,13 @@
 }
 .slick-next:before
 {
-    content: '→';
+    font-family: FontAwesome;
+    content: "\f054";
 }
 [dir='rtl'] .slick-next:before
 {
-    content: '←';
+    font-family: FontAwesome;
+    content:" \f054";
 }
 
 /* Dots */
@@ -202,7 +206,7 @@
     }
 
     .slick-prev{
-        left: calc(98vw - 85px);
+        left: calc(99vw - 79px);
     }
 
     .slick-next, .slick-prev{
