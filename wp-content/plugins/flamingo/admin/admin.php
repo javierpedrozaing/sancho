@@ -12,7 +12,7 @@ function flamingo_admin_menu() {
 
 	add_menu_page(
 		__( 'Flamingo Address Book', 'flamingo' ),
-		__( 'Flamingo', 'flamingo' ),
+		__( 'Formulario de contacto', 'flamingo' ),
 		'flamingo_edit_contacts', 'flamingo',
 		'flamingo_contact_admin_page', 'dashicons-feedback',
 		$_wp_last_object_menu );

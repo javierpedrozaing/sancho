@@ -30,11 +30,13 @@ global $wp_query;
                             <p class="email-oportunity"><?php echo $email; ?></p>            
                         </div>
 
-                        <a class="read-more collapsed" data-toggle="collapse" data-target="#description-<?php echo get_the_id() ?>">Ver más  </a><span class="read-more-icon fa"></span>
+                        
 
                         <div id="description-<?php echo get_the_id()?>" class="collapse">                    
                             <p class="description-oportunity"><?php echo $description; ?></p>                        
                         </div>
+
+                        <a class="read-more collapsed" data-toggle="collapse" data-target="#description-<?php echo get_the_id() ?>">Ver más  </a><span class="read-more-icon fa"></span>
                     </div>
                     <hr>
                     <?php endwhile; ?>

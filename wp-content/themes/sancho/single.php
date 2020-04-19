@@ -16,7 +16,7 @@ get_header(); ?>
 	?>
 
 
-	<div class="slide-home">
+	<div class="slide-home container-article-work">
 		<?php if ( $the_query->have_posts() ) : ?>
 			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 				<?php 
@@ -46,28 +46,28 @@ get_header(); ?>
 						
 					   						
 					   ?>
-					   
-					   	<div class="content-slide">			
-						   
-							<a href="<?php echo ($idvideo) ?  "#" : esc_url( $linkSlide ); ?> "  target="<?php echo ($idvideo) ?  "_self" : "_blank"; ?>" class="slide-block">
-							<?php if (!empty($idvideo)) :  ?>							
-							
-							<div id="play_video" class="container-video-article">
-								<img class="embedvideo" hidden src="https://www.youtube.com/embed/<?php echo $idvideo ?>?feature=oembed&autoplay=1&showinfo=0" alt="">
-								<img src="https://img.youtube.com/vi/<?php echo $idvideo ?>/hqdefault.jpg">
-							</div> 
-							<?php else :?> 								
-								<img class="mobile" src="<?php echo esc_url($imageSlideMobile['url']); ?>" alt="" />
-								<img class="desktop" src="<?php echo esc_url($imageSlide['url']); ?>" alt="" />
-							<?php endif; ?>
+					   	<div class="content-slide">														
+								<a href="<?php echo ($idvideo) ?  "#" : esc_url( $linkSlide ); ?> "  target="<?php echo ($idvideo) ?  "_self" : "_blank"; ?>" class="slide-block">
+								<?php if (!empty($idvideo)) :  ?>							
 								
-								<h4><?php  echo $titleSlide; ?> </h4>
-								<p class="text-slide"><?php echo $contentSlide; ?></p>
-							</a>	
-							<?php if (empty($idvideo)) :  ?>							
-								<a href="<?php echo esc_url( $linkSlide ); ?> " target="_blank" class="link-slide">Ver Más</a>
-							<?php endif; ?>
-						</div>						
+								<div id="play_video" class="container-video-article">
+									<img class="embedvideo" hidden src="https://www.youtube.com/embed/<?php echo $idvideo ?>?feature=oembed&autoplay=1&showinfo=0" alt="">
+									<img class="preview" src="https://img.youtube.com/vi/<?php echo $idvideo ?>/hqdefault.jpg">
+								</div> 
+								<?php else :?> 								
+									<img class="mobile" src="<?php echo esc_url($imageSlideMobile['url']); ?>" alt="" />
+									<img class="desktop" src="<?php echo esc_url($imageSlide['url']); ?>" alt="" />
+									<div class="content-text">	
+									<h4><?php  echo $titleSlide; ?> </h4>
+									<p class="text-slide"><?php echo $contentSlide; ?></p>
+									<?php if (empty($idvideo)) :  ?>							
+									<a href="<?php echo esc_url( $linkSlide ); ?> " target="_blank" class="link-slide">Ver Más</a>
+									<?php endif; ?>
+								</div>
+								<?php endif; ?>								
+								</a>															
+						</div>	
+					  				
 
 			   			<?php 
 				   endwhile;
@@ -94,9 +94,7 @@ get_header(); ?>
 					</div>
 				</div>
 		</div>		
-			<div class="banner-article">
-				
-
+			<div class="banner-article">			
 				<div class="container-text-article">
 				<h1> <?php echo the_title(); ?></h1>				
 				<h3><span class="author"><?php echo get_the_author_meta('user_firstname');  ?></span> | <span class="date-article"><?php the_date() ?></span></h3>	

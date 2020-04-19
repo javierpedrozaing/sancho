@@ -6,13 +6,11 @@
 <?php global $tDir; ?>
 <?php get_header(); ?>
 <?php  get_template_part('template-parts/part-header'); ?>
-
-	<div class="container-about">
-			<!-- Large modal Mobil -->						
-			<div class="modal  modal-leaders-mobil modal-dialog  modal-lg" tabindex="-1" role="dialog">
+	<!-- Large modal Mobil -->						
+	<div class="modal  modal-leaders-mobil modal-dialog  modal-lg" tabindex="-1" role="dialog">
 				<div class="modal-content">								
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span >< Atras</span>
+					<span >< Atrás</span>
 				</button>
 							
 				<div class="modal-body">
@@ -28,7 +26,7 @@
 				</div>							
 				</div>						
 			</div>
-								
+	<div class="container-about">								
 				<?php if (get_field('imagen_o_video') == "imagen") : ?>
 					<div class="about-img">
 						<img class="img-desktop-about" src="<?php echo the_field('imagen_escritorio'); ?>">

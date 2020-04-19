@@ -91,8 +91,7 @@
         }
     });
 
-   
-
+       
     // animacion compartir y ancla
     var scrollPos = 10;
     $('.container-share').css('opacity','1');
@@ -136,11 +135,10 @@
       $('.container-about .modal-leaders').css('position', 'relative');             
     });
 
-  
-    $(document).on("click", ".modal-leaders", function () {      
+
+    $(document).on("click", ".modal-leaders", function () {         
       $('.container-about .modal-leaders').css('position', 'absolute');            
-      $("html, body").animate({ scrollTop: 0 }, 600);
-      console.log("modal leaders");
+      $("html, body").animate({ scrollTop: 0 }, 600);            
       let photo_leader = $(this).data('photo-modal');
       let name_leader = $(this).data('name');
       let position_leader = $(this).data('position');
@@ -158,9 +156,17 @@
       $(".modal-leaders-mobil").css('opacity', '1');
       $(".modal-leaders-mobil").css('cursor', 'pointer');
       $(".modal-leaders-mobil").prev('.hover-card').show();  
+    
     });
+
+    
+    // SAVE HTML ABOUT PAGE FOR SHOW MODAL MOBILE
+  
+    var saveAboutContent =  $('.container-about').html();
+
     // hover click mobile
-    $(document).on("click", ".modal-leaders-mobil", function () {            
+    $(document).on("click", ".card .modal-leaders-mobil", function () {   
+      $('.container-about').html(""); // reset content about              
       $("html, body").animate({ scrollTop: 0 }, 600);
       console.log("modal leaders mobil");
       let photo_leader = $(this).data('photo-modal');
@@ -171,7 +177,10 @@
       $(".modal-leaders-mobil .modal-body .name-leader").text(name_leader);
       $(".modal-leaders-mobil .modal-body .position-leader").text(position_leader);
       $(".modal-leaders-mobil .modal-body .description-leader").text(description_leader);      
+    });
 
+    $(document).on("click", ".modal-leaders-mobil .close", function () {
+      $('.container-about').html(saveAboutContent);
     });
 
       // hover leaders mobile

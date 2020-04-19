@@ -25,9 +25,10 @@ global $wp_query;
             </div>
         </div>
 
-        <div class="col-xs-1 col-md-8 .col-lg-8 order-first order-xs-1 order-md-2 order-lg-2">
+        <div class="second-section col-xs-1 col-md-8 .col-lg-8 order-first order-xs-1 order-md-2 order-lg-2">
             <div class="location-contact">
-                <img src="<?php echo get_template_directory_uri() ?>/images/location.PNG" alt="">
+                <!-- <img src="<?#php echo get_template_directory_uri() ?>/images/location.PNG" alt=""> -->                
+                <span style="background: url('<?php echo get_template_directory_uri() ?>/images/location.PNG') top center no-repeat;"></span>
             </div>
         </div>
     </div>
