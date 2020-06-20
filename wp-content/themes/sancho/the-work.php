@@ -46,7 +46,7 @@ global $tDir;
 							<div class="hover-content">
 								<p class="taq-post"><?php  echo the_category() ?> </p>
 								<p class="title-post"> <?php  echo the_title() ?>  </p>
-								<p class="date-post"><?php echo $campaingDate ?></p>
+								<p class="date-post"><?php echo $campaingDate ?> | <span><?php echo $client ?></span> </p>								
 								<p class="link-post">
 									<?php 
 									if ($external_link) { ?>									

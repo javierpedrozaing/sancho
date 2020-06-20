@@ -144,7 +144,9 @@ function load_posts_by_ajax(){
 					$external_link = get_field( 'check_external_link' );
 					$the_external_link = get_field( 'external_link' );
 					$permalink =  ($external_link) ? $the_external_link : get_post_permalink(get_the_ID());
-
+					$client = get_field( 'cliente' );
+					$author = get_field( 'campaing_author' );
+					$campaingDate = get_field( 'campaing_date' );
 					?>
 					<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID()); ?>	
 					<a href="<?php echo $permalink?>" target="_blank">										
@@ -152,7 +154,11 @@ function load_posts_by_ajax(){
 							<div class="hover-content">
 								<p class="taq-post"><?php  echo the_category() ?> </p>
 								<p class="title-post"> <?php  echo the_title() ?>  </p>
+								<?php if(get_the_category()[0]->slug == 'the-work' || get_the_category()[0]->slug == 'campana') : ?>
+									<p class="date-post"><?php echo $campaingDate ?></span> | <span class="date-article"><?php echo $client ?></p>
+								<?php else : ?>
 								<p class="date-post"><?php echo get_the_date() ?></p>
+								<?php endif; ?>
 								<p class="link-post">
 									<?php 
 									if ($external_link) { ?>									
