@@ -1,0 +1,210 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Share Button\n"
+"POT-Creation-Date: 2017-11-12 11:10+0600\n"
+"PO-Revision-Date: 2017-11-12 11:10+0600\n"
+"Last-Translator: Nur Hasan <public.nurhasan@gmail.com>\n"
+"Language-Team: PickPlugins <support@pickplugins.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: includes\n"
+"X-Poedit-SearchPath-1: templates\n"
+"X-Poedit-SearchPath-2: .\n"
+
+#: includes/class-settings.php:25
+#, fuzzy
+#| msgid "WP Share Button"
+msgid "Social Share Button"
+msgstr "WP Share Button"
+
+#: includes/class-settings.php:29 includes/menu/migrate.php:24
+msgid "Migrate"
+msgstr ""
+
+#: includes/menu/settings.php:94
+msgid "Changes Saved."
+msgstr ""
+
+#: includes/menu/settings.php:110
+msgid "Settings"
+msgstr "সেটিং"
+
+#: includes/menu/settings.php:122
+msgid "Options"
+msgstr ""
+
+#: includes/menu/settings.php:123
+msgid "Style"
+msgstr ""
+
+#: includes/menu/settings.php:124
+msgid "Display"
+msgstr ""
+
+#: includes/menu/settings.php:125 includes/menu/settings.php:438
+msgid "Shortcode"
+msgstr ""
+
+#: includes/menu/settings.php:126
+msgid "Help & Support"
+msgstr "সাহায্য ও যোগাযোগ"
+
+#: includes/menu/settings.php:133
+msgid "Total max button display"
+msgstr "কতটি বাটন দেখাতে চান"
+
+#: includes/menu/settings.php:140
+msgid "Display more buttons"
+msgstr "অতিরক্ত বাটন দেখান"
+
+#: includes/menu/settings.php:150
+msgid "Count format"
+msgstr "গননা ফরম্যাট"
+
+#: includes/menu/settings.php:151
+msgid ""
+"Full format will display whole number(4000) and short format will display as 4k (i."
+"e 4000)."
+msgstr ""
+
+#: includes/menu/settings.php:162
+msgid "Sharing sites"
+msgstr "শেয়ার করার সাইট গুলি"
+
+#: includes/menu/settings.php:163
+msgid ""
+"you can pass values for url and title dynamically using following string on share "
+"url, <ul><li>{title} = Post Title </li><li>{url} = Post url</li> </ul>"
+msgstr ""
+
+#: includes/menu/settings.php:169
+msgid "Sort"
+msgstr ""
+
+#: includes/menu/settings.php:169
+msgid "Site name"
+msgstr "সাইট নাম"
+
+#: includes/menu/settings.php:169
+msgid "ID"
+msgstr ""
+
+#: includes/menu/settings.php:169
+msgid "Share URL"
+msgstr "শেয়ার ইউওয়ারএল"
+
+#: includes/menu/settings.php:169
+msgid "FA Icon"
+msgstr ""
+
+#: includes/menu/settings.php:169
+msgid "Visiblity"
+msgstr "ভিসিবিলিটি"
+
+#: includes/menu/settings.php:169 includes/menu/settings.php:329
+msgid "Remove"
+msgstr "মুছে ফেলুন"
+
+#: includes/menu/settings.php:262 includes/menu/settings.php:429
+msgid "Add more"
+msgstr "যোগ করুন"
+
+#: includes/menu/settings.php:268
+#, fuzzy
+#| msgid "Themes."
+msgid "Themes"
+msgstr "থীম"
+
+#: includes/menu/settings.php:316
+msgid "Display on these automatically"
+msgstr "সংক্রিয় ভাবে এইগুলোতে দেখান"
+
+#: includes/menu/settings.php:325
+msgid "Display on"
+msgstr "যেখানে দেখাবেন"
+
+#: includes/menu/settings.php:326
+msgid "Position"
+msgstr "পজিশন"
+
+#: includes/menu/settings.php:327
+msgid "Postypes"
+msgstr "পোস্ট টাইপ"
+
+#: includes/menu/settings.php:328
+msgid "Page type"
+msgstr "পেইজ টাইপ"
+
+#: includes/menu/settings.php:362 includes/menu/settings.php:369
+#: includes/menu/settings.php:381 includes/menu/settings.php:404
+msgid "None"
+msgstr "কিছু না"
+
+#: includes/menu/settings.php:363
+msgid "Content"
+msgstr "কনটেন্ট"
+
+#: includes/menu/settings.php:369
+msgid "Before"
+msgstr "আগে"
+
+#: includes/menu/settings.php:370
+msgid "After"
+msgstr "পরে"
+
+#: includes/menu/settings.php:405
+msgid "Single"
+msgstr "সিঙ্গেল পেইজ"
+
+#: includes/menu/settings.php:406
+msgid "Archive"
+msgstr "আর্কাইভ পেইজ"
+
+#: includes/menu/settings.php:407
+msgid "Home"
+msgstr "হোম পেইজ"
+
+#: includes/menu/settings.php:439
+msgid "Please use following shortcode inside loop on your theme files"
+msgstr ""
+
+#: includes/menu/settings.php:449
+msgid "Plugin info ?"
+msgstr "প্লাগিং তথ্য"
+
+#: includes/menu/settings.php:479
+msgid "Need Help ?"
+msgstr "সাহায্য দরকার ?"
+
+#: includes/menu/settings.php:480
+#, php-format
+msgid ""
+"Feel free to contact with any issue for this plugin, Ask any question via forum %s "
+msgstr "যেকোন সাহায্যের জন্যে নির্দ্বিধায় যোগাযোগ করুন, প্রশ্ন করুন আমাদের ফোরামে %s"
+
+#: includes/menu/settings.php:492
+msgid "Submit reviews"
+msgstr ""
+
+#: includes/menu/settings.php:495
+msgid ""
+"We are working hard to build some awesome plugins for you and spend thousand hour "
+"for plugins. we wish your three(3) minute by submitting five star reviews at "
+"wordpress.org. if you have any issue please submit at forum."
+msgstr ""
+
+#: includes/menu/settings.php:533
+msgid "Save Changes"
+msgstr "পরিবর্তন সংরক্ষন করুন"
+
+#~ msgid "Video Tutorial"
+#~ msgstr "ভিডিও টিউটোরিয়াল"
+
+#~ msgid "Please watch this video tutorial."
+#~ msgstr "দয়া করে ভিডিও টিউটোরিয়াল দেখুন"
