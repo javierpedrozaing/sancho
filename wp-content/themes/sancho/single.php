@@ -11,8 +11,16 @@ get_header(); ?>
 	 
 	 if (get_the_category()[0]->slug == 'the-work') : ?>
 	<?php 
-		$args = array( 'post_type' => 'bannerslide', 'posts_per_page' => 5, 'post_name__in' => array('article-slider') );
+		$idpost = get_the_ID();
+		$args = array( 'post_type' => 'bannerslide',  'meta_query' => array(
+			array(
+				'key'     => 'related_article',
+				'value'   => array($idpost),
+				'compare' => 'IN',
+			),
+		), );
 		$the_query = new WP_Query( $args );		
+		var_dump($the_query->have_posts());
 	?>
 
 
