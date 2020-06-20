@@ -280,22 +280,28 @@
       });    
 
     // load init post HOME
-    loadPostInit();
-   
-    var canBeLoaded = true;
-    // Load more post infinity scroll
-    jQuery(window).scroll(function($) {
-  
+    var datapost = {
+      'action': 'load_posts_by_ajax',
+      'posts_per_page' : 12,     
+      'page':  themeSancho._current_page,
       
-      if( jQuery(document).scrollTop() > ( jQuery(document).height() - 1000 ) && canBeLoaded == true ){
-        
-        loadPostInit();        
+    };   
+    loadPostInit(datapost);
+   
+    
+    var canBeLoaded = true, // this param allows to initiate the AJAX call only if necessary
+	    bottomOffset = 1200; // the distance (in px) from the page bottom when you want to load more posts
+    // Load more post infinity scroll
+    $(window).scroll(function() {  
+     
+      if( $(document).scrollTop() > ( $(document).height() - bottomOffset ) && canBeLoaded == true ){
+        datapost.page++;
+        loadPostInit(datapost);        
       }
     });
 
     // hover de logos de compañia
-      
-
+    
         $(".container-company .container-img-company").hover(function() {          
           console.log("hover hover");
           $(this).find('.img-black').css('display', 'none');
@@ -404,61 +410,67 @@
     /////////////////////////// END MOBILE //////////////////////////////////////
   });    
 
-    function loadPostInit(){
+    function loadPostInit(data){
       
-      var data = {
-        'action': 'load_posts_by_ajax',
-        'query': themeSancho.posts,
-        'page':  themeSancho._current_page,
-        'max_page': themeSancho._max_page + 1,
-      };   
-      
-      $.post(themeSancho._ajax_url, data, function(response) {  
-        
-        
-        if (themeSancho._current_page != themeSancho._max_page) {          
-          themeSancho._current_page++;
-            if($.trim(response) != '') {
-    
-              $('.containergrid').append(response);
+      $.ajax({
+				url :themeSancho._ajax_url,
+				data:data,
+				type:'POST',
+				beforeSend: function( xhr ){
+					// you can also add your own preloader here
+					// you see, the AJAX call is in process, we shouldn't run it again until complete
+					canBeLoaded = false; 
+				},
+				success:function(response){
+					if( response ) {
+            canBeLoaded = true; // the ajax is completed, now we can run it again
+            let page = parseInt(themeSancho._current_page) + 1;
+            themeSancho._current_page = page;            
+            $('.containergrid').append(response);
+         
+          $( ".gridhome .grid-item" ).click(function(e){
             
-              $('.gridhome').masonry({
-                itemSelector: '.grid-item',                            
-                gutter: 4,                                             
-            });
+            $(this).find('.hover-content').show();
+            $(this).find('.hover-content').css('position', 'absolute');
+            $(this).find('.hover-content').css('z-index', '9999')
+            // $(this).find('.hover-content').css('top', '80px');
+            $(this).find('.hover-content').css('margin', '0 20px');
+            $(this).find('.hover-content').css('color', '#fff');
+            $(this).find('.hover-content').css('font-weight', 'bold');              
+          });  
 
-            $( ".gridhome .grid-item" ).click(function(e){
-              
-              $(this).find('.hover-content').show();
-              $(this).find('.hover-content').css('position', 'absolute');
-              $(this).find('.hover-content').css('z-index', '9999')
-              // $(this).find('.hover-content').css('top', '80px');
-              $(this).find('.hover-content').css('margin', '0 20px');
-              $(this).find('.hover-content').css('color', '#fff');
-              $(this).find('.hover-content').css('font-weight', 'bold');              
-            });  
-
-            $( ".gridhome .grid-item" ).hover(function() {
-              console.log("hover");
-              $(this).find('.hover-content').show();
-              $(this).find('.hover-content').css('position', 'absolute');
-              $(this).find('.hover-content').css('z-index', '9999')
-              // $(this).find('.hover-content').css('top', '80px');
-              $(this).find('.hover-content').css('margin', '0 20px');
-              $(this).find('.hover-content').css('color', '#fff');
-              $(this).find('.hover-content').css('font-weight', 'bold');
-              
-                $(this).addClass('active_hover_grid');
-              
-              }, function() {
-                $(this).removeClass('active_hover_grid');
-                $(this).find('.hover-content').hide();
-              });                
-            } else {
-                $('.loadmore').hide();
-            }
+          $( ".gridhome .grid-item" ).hover(function() {
+            console.log("hover");
+            $(this).find('.hover-content').show();
+            $(this).find('.hover-content').css('position', 'absolute');
+            $(this).find('.hover-content').css('z-index', '9999')
+            // $(this).find('.hover-content').css('top', '80px');
+            $(this).find('.hover-content').css('margin', '0 20px');
+            $(this).find('.hover-content').css('color', '#fff');
+            $(this).find('.hover-content').css('font-weight', 'bold');
+            
+              $(this).addClass('active_hover_grid');
+            
+            }, function() {
+              $(this).removeClass('active_hover_grid');
+              $(this).find('.hover-content').hide();
+            });                
+						
+					}
+        },
+        complete: function(){
+          $('.gridhome').masonry({
+            // itemSelector: '.grid-item',
+            // masonry: {        
+            //   gutter: 4,
+            //   horizontalOrder: false,                
+            // }
+            itemSelector: '.grid-item',
+            
+            gutter: 4,                         
+          });
         }
-      });      
+			});
 
     }
 

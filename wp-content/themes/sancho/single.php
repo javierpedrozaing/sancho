@@ -10,17 +10,15 @@ get_header(); ?>
 	<?php
 	 
 	 if (get_the_category()[0]->slug == 'the-work') : ?>
-	<?php 
-		$idpost = get_the_ID();
-		$args = array( 'post_type' => 'bannerslide',  'meta_query' => array(
+	<?php 		
+		$args = array( 'post_type' => 'bannerslide', 'post_status' => 'publish',  'meta_query' => array(
 			array(
 				'key'     => 'related_article',
-				'value'   => array($idpost),
-				'compare' => 'IN',
+				'value' => get_the_ID(), // matches exactly "123", not just 123. This prevents a match for "1234"
+				'compare' => 'LIKE'
 			),
 		), );
-		$the_query = new WP_Query( $args );		
-		var_dump($the_query->have_posts());
+		$the_query = new WP_Query( $args );				
 	?>
 
 
